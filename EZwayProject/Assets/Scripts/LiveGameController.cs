@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LiveGameController : MonoBehaviour
 {
-    public List<LetterSlot> letterPool;
-    public List<LetterSlot> answerSlot;
-    public QuestionData currentQuestion;
-    public LevelData currentLevel;
+    public LetterPool LetterPool;
+    public QuestionData CurrentQuestion;
+    public LevelData CurrentLevel;
+    public UnityEvent OnLetterPicked;
+    public List<LetterSlot> AnswerSlots;
+
 
     public static LiveGameController Instance { get { return _instance; } }
     private static LiveGameController _instance;
@@ -24,4 +27,5 @@ public class LiveGameController : MonoBehaviour
             Destroy(this);
         }
     }
+
 }

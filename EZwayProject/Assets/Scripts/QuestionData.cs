@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class QuestionData : MonoBehaviour
 {
-    public string example;
-    public string condition;
-    public string question;
-    public string answer;
+    public string Example;
+    public string Condition;
+    public string Question;
+    public string Answer;
 }

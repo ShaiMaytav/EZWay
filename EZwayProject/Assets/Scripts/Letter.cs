@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Letter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string LetterValue;
+    [SerializeField] private TMP_Text letterTxt;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateLetter(string _letter)
     {
-        
+        LetterValue = _letter;
+        letterTxt.text = LetterValue;
     }
 }

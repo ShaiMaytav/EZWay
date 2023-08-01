@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioManager Instance { get { return _instance;} private set { } }
+    private AudioManager _instance;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("An AudioManager component was removed from " + gameObject.name);
+            Destroy(this);
+        }
     }
 }
