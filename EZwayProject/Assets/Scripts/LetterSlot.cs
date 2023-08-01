@@ -5,10 +5,14 @@ using TMPro;
 
 public class LetterSlot : MonoBehaviour
 {
-    public bool IsEmpty = true;
-    public Letter LetterPrefab;
-    public Letter CurrentLetter;
-    
+    public LetterObject LetterPrefab;
+    public LetterObject CurrentLetter;
+    public bool IsEmpty
+    {
+        get
+        { return !CurrentLetter; }
+    }
+
     private LiveGameController _gameController;
 
     private void Start()
@@ -18,13 +22,12 @@ public class LetterSlot : MonoBehaviour
 
     public void Pick()
     {
-        print("pick");
+        _gameController.PickLetter(this);
     }
 
     public void CreateLetter()
     {
         CurrentLetter = Instantiate(LetterPrefab, transform.position, transform.rotation, transform);
-        IsEmpty = false;
     }
 
     public void SetLetter(string value)
@@ -33,5 +36,11 @@ public class LetterSlot : MonoBehaviour
         {
             CurrentLetter.UpdateLetter(value);
         }
+    }
+
+    public void SendLetterToSlot(LetterSlot slot)
+    {
+        CurrentLetter.ChangeSlot(slot);
+        CurrentLetter = null;
     }
 }

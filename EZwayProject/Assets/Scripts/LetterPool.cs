@@ -23,15 +23,15 @@ public class LetterPool : MonoBehaviour
     {
         get
         {
-            EmptySlots.Clear();
+            List<LetterSlot> slots = new List<LetterSlot>();
             foreach (var slot in AllSlots)
             {
                 if (slot.IsEmpty)
                 {
-                    EmptySlots.Add(slot);
+                    slots.Add(slot);
                 }
             }
-            return EmptySlots;
+            return slots;
         }
     }
 
