@@ -5,8 +5,11 @@ using TMPro;
 
 public class LetterSlot : MonoBehaviour
 {
-    public LetterObject LetterPrefab;
     public LetterObject CurrentLetter;
+
+    //temp
+    [SerializeField] private PrefabsSO prefabs;
+
     public bool IsEmpty
     {
         get
@@ -14,10 +17,12 @@ public class LetterSlot : MonoBehaviour
     }
 
     private LiveGameController _gameController;
+    private GameManager _gameManager;
 
     private void Start()
     {
         _gameController = LiveGameController.Instance;
+        _gameManager = GameManager.Instance;    
     }
 
     public void Pick()
@@ -27,7 +32,7 @@ public class LetterSlot : MonoBehaviour
 
     public void CreateLetter()
     {
-        CurrentLetter = Instantiate(LetterPrefab, transform.position, transform.rotation, transform);
+        CurrentLetter = Instantiate(prefabs.LetterObjectPrefab, transform.position, transform.rotation, transform);
     }
 
     public void SetLetter(string value)

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int Score;
     public List<LevelData> Levels;
+    public PrefabsSO prefabs;
     public static GameManager Instance { get{return _instance;}}
     private static GameManager _instance;
 

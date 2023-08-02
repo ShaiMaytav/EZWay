@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int LevelNum;
+    public bool isUnlocked;
+    public List<QuestionData> Questions;
+    [HideInInspector]public int CompletedQuestionsCount = 0;
+    public int QuestionsAmount { get { return Questions.Count; }}
 }

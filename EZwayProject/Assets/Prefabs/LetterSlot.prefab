@@ -260,7 +260,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e6cf70e3420ea4293385a43ab331c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsEmpty: 1
-  LetterPrefab: {fileID: 4826462632679444252, guid: 7f16238bbf462b342ad9ab10776a588d,
-    type: 3}
   CurrentLetter: {fileID: 0}
+  prefabs: {fileID: 11400000, guid: fd448f41615dc9c448a8bf2375c61ee1, type: 2}

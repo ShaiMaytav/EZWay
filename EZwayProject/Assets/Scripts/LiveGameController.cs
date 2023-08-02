@@ -8,9 +8,14 @@ public class LiveGameController : MonoBehaviour
     public LetterPool LetterPool;
     public QuestionData CurrentQuestion;
     public LevelData CurrentLevel;
+    public RectTransform AnswerSlotsLayout;
     public UnityEvent OnPoolLetterPicked;
     public List<LetterSlot> AnswerSlots;
 
+    [SerializeField] private RectTransform canvas;
+
+
+    private GameManager _gameManager;
 
     public static LiveGameController Instance { get { return _instance; } }
     private static LiveGameController _instance;
@@ -30,7 +35,10 @@ public class LiveGameController : MonoBehaviour
 
     private void Start()
     {
+        _gameManager = GameManager.Instance;
         OnPoolLetterPicked.AddListener(AnswerCheck);
+
+        GenerateQuestion();
     }
 
     public void PickLetter(LetterSlot letterSlot)
@@ -105,8 +113,67 @@ public class LiveGameController : MonoBehaviour
 
         if (answer == CurrentQuestion.Answer)
         {
-            //correct answer
-            print("nice");
+            print("Correct");
+            if (CurrentLevel.CompletedQuestionsCount < CurrentLevel.Questions.Count - 1)
+            {
+                CurrentLevel.CompletedQuestionsCount++;
+                GenerateQuestion();
+            }
+            else
+            {
+                print("Level complete");
+                //level complete
+            }
         }
+    }
+
+    private void ResetPool()
+    {
+        foreach (var slot in AnswerSlots)
+        {
+            if (!slot.IsEmpty)
+            {
+                AnswerToPool(slot);
+            }
+        }
+    }
+
+    public void NextQueestion()
+    {
+
+    }
+
+    void GenerateQuestion()
+    {
+        ResetPool();
+        CurrentQuestion = CurrentLevel.Questions[CurrentLevel.CompletedQuestionsCount];
+        AdjustAnswerSlots();
+        LetterPool.SetLetters();
+    }
+
+    private void AdjustAnswerSlots()
+    {
+        int slotsDelta = CurrentQuestion.Answer.Length - AnswerSlots.Count;
+
+        if (slotsDelta >= 0)
+        {
+            for (int i = 0; i < slotsDelta; i++)
+            {
+                AnswerSlots.Add(Instantiate(_gameManager.prefabs.LetteSlotrPrefab, AnswerSlotsLayout));
+            }
+        }
+        else
+        {
+            for (int i = 0; i > slotsDelta; i--)
+            {
+                Destroy(AnswerSlots[AnswerSlots.Count - 1].gameObject);
+                AnswerSlots.RemoveAt(AnswerSlots.Count - 1);
+            }
+        }
+
+        // Set the position of the RectTransform
+        //AnswerSlotsLayout.position = new Vector2((canvas.position.x / 2) * -1, AnswerSlotsLayout.anchoredPosition.y);
+
+
     }
 }

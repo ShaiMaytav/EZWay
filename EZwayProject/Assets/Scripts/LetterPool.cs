@@ -37,12 +37,11 @@ public class LetterPool : MonoBehaviour
 
     private LiveGameController _controller;
 
-    private void Start()
+    private void Awake()
     {
         _controller = LiveGameController.Instance;
 
         CreateLetters();
-        SetLetters();
     }
 
     public void CreateLetters()

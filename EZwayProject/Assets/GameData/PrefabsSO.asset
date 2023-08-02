@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec52846d5a538bc4497aa39052c01924, type: 3}
+  m_Name: PrefabsSO
+  m_EditorClassIdentifier: 
+  LetterObjectPrefab: {fileID: 4826462632679444252, guid: 7f16238bbf462b342ad9ab10776a588d,
+    type: 3}
+  LetteSlotrPrefab: {fileID: 2726800396257386782, guid: 059f9e64927b80640bb6a8b8397d74ac,
+    type: 3}
