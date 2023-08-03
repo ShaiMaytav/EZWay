@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private MainMenuUI mainMenuUI;
+    [SerializeField] private LevelSelectionUI levelSelectionUI;
+    [SerializeField] private TutorialUI tutorialUI;
+    [SerializeField] private GameplayUI gameplayUI;
+
+    private GameManager _gameManager;
+
+    private void Awake()
     {
-        
+        _gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        levelSelectionUI.CreateLevelsButtons();
+    }
+
+    public void Play()
+    {
+        mainMenuUI.gameObject.SetActive(false);
+        levelSelectionUI.gameObject.SetActive(true);
+        levelSelectionUI.UpdateButtonsInfo();
     }
 }

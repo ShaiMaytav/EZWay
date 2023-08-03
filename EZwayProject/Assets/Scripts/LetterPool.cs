@@ -62,7 +62,7 @@ public class LetterPool : MonoBehaviour
         string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         //places answer letters randomly in pool
-        foreach (var letter in _controller.CurrentQuestion.Answer)
+        foreach (var letter in LiveGameController.Instance.CurrentQuestion.Answer)
         {
             tmpSlot = _slots[Random.Range(0, _slots.Count)];
             tmpSlot.SetLetter(letter.ToString());

@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class LevelSelectionUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RectTransform levelLayout;
+     
+    private List<LevelButton> _levelsButtons = new List<LevelButton>();
+    private GameManager _gameManager;
+
+    private void Awake()
     {
-        
+        _gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CreateLevelsButtons()
     {
-        
+        foreach (var level in GameManager.Instance.Levels)
+        {
+            _levelsButtons.Add(Instantiate(GameManager.Instance.prefabs.LevelButtonPrefab, levelLayout));
+        }
+    }
+
+    public void UpdateButtonsInfo()
+    {
+        for (int i = 0; i < _levelsButtons.Count; i++)
+        {
+            _levelsButtons[i].UpdateInfo(_gameManager.Levels[i]);
+        }
     }
 }

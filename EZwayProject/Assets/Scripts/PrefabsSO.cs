@@ -7,4 +7,5 @@ public class PrefabsSO : ScriptableObject
 {
     public LetterObject LetterObjectPrefab;
     public LetterSlot LetteSlotrPrefab;
+    public LevelButton LevelButtonPrefab;
 }

@@ -14,7 +14,7 @@ public class LiveGameController : MonoBehaviour
 
     [SerializeField] private RectTransform canvas;
 
-
+    private int _currentQuestionIndex;
     private GameManager _gameManager;
 
     public static LiveGameController Instance { get { return _instance; } }
@@ -37,7 +37,12 @@ public class LiveGameController : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         OnPoolLetterPicked.AddListener(AnswerCheck);
+    }
 
+    public void StartLevel(int levelNum)
+    {
+        CurrentLevel = _gameManager.Levels[levelNum];
+        _currentQuestionIndex = CurrentLevel.CompletedQuestionsCount == CurrentLevel.Questions.Count ? 0 : CurrentLevel.CompletedQuestionsCount;
         GenerateQuestion();
     }
 
@@ -114,9 +119,9 @@ public class LiveGameController : MonoBehaviour
         if (answer == CurrentQuestion.Answer)
         {
             print("Correct");
-            if (CurrentLevel.CompletedQuestionsCount < CurrentLevel.Questions.Count - 1)
+            if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
-                CurrentLevel.CompletedQuestionsCount++;
+                _currentQuestionIndex++;
                 GenerateQuestion();
             }
             else
@@ -146,7 +151,7 @@ public class LiveGameController : MonoBehaviour
     void GenerateQuestion()
     {
         ResetPool();
-        CurrentQuestion = CurrentLevel.Questions[CurrentLevel.CompletedQuestionsCount];
+        CurrentQuestion = CurrentLevel.Questions[_currentQuestionIndex];
         AdjustAnswerSlots();
         LetterPool.SetLetters();
     }
@@ -173,7 +178,10 @@ public class LiveGameController : MonoBehaviour
 
         // Set the position of the RectTransform
         //AnswerSlotsLayout.position = new Vector2((canvas.position.x / 2) * -1, AnswerSlotsLayout.anchoredPosition.y);
+    }
 
+    private void CenterAnswerLayout()
+    {
 
     }
 }
