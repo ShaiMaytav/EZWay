@@ -26,7 +26,9 @@ public class LevelButton : MonoBehaviour
 
     private void StartLevel()
     {
+        UIManager.Instance.StartLevel();
         LiveGameController.Instance.StartLevel(_levelNum - 1);
+        print("Entering level " + _levelNum);
     }
 
 }

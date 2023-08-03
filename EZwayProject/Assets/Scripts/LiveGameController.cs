@@ -9,8 +9,9 @@ public class LiveGameController : MonoBehaviour
     public QuestionData CurrentQuestion;
     public LevelData CurrentLevel;
     public RectTransform AnswerSlotsLayout;
-    public UnityEvent OnPoolLetterPicked;
     public List<LetterSlot> AnswerSlots;
+    public UnityEvent OnPoolLetterPicked;
+
 
     [SerializeField] private RectTransform canvas;
 
@@ -28,7 +29,7 @@ public class LiveGameController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("A LiveGameComponent component was removed from " + gameObject.name);
+            Debug.LogWarning("A LiveGameController component was removed from " + gameObject.name);
             Destroy(this);
         }
     }
@@ -119,6 +120,7 @@ public class LiveGameController : MonoBehaviour
         if (answer == CurrentQuestion.Answer)
         {
             print("Correct");
+            GameManager.Instance.IncreasePoints();
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
                 _currentQuestionIndex++;
@@ -164,7 +166,7 @@ public class LiveGameController : MonoBehaviour
         {
             for (int i = 0; i < slotsDelta; i++)
             {
-                AnswerSlots.Add(Instantiate(_gameManager.prefabs.LetteSlotrPrefab, AnswerSlotsLayout));
+                AnswerSlots.Add(Instantiate(_gameManager.Prefabs.LetteSlotrPrefab, AnswerSlotsLayout));
             }
         }
         else
@@ -183,5 +185,86 @@ public class LiveGameController : MonoBehaviour
     private void CenterAnswerLayout()
     {
 
+    }
+
+    public void Hint()
+    {
+        if (GameManager.Instance.CanUseHint)
+        {
+            GameManager.Instance.BuyHint();
+            LetterSlot _resSlot = null; //the slot containing the letter we need  
+            LetterSlot _chosenSlot = null; //the answer slot chosen to be filled
+            string _answerLetter = null; // need this to find the right resSlot
+            List<int> _uncheckedAnswerSlotsIndexes = new List<int>();
+
+            //populate list with indexes
+            for (int i = 0; i < AnswerSlots.Count; i++)
+            {
+                _uncheckedAnswerSlotsIndexes.Add(i);
+            }
+
+            #region PickSlotToFill
+            for (int i = AnswerSlots.Count; i > 0; i--)
+            {
+                int _index = Random.Range(0, i); // index for random indexes list (sorry)
+                int _randomIndex = _uncheckedAnswerSlotsIndexes[_index];
+                _chosenSlot = AnswerSlots[_randomIndex];
+                _answerLetter = CurrentQuestion.Answer[_randomIndex].ToString();
+
+                if (_chosenSlot.CurrentLetter == null)
+                {
+                    break;
+                }
+
+                if (_chosenSlot.CurrentLetter.LetterValue != _answerLetter)
+                {
+                    AnswerToPool(_chosenSlot);
+                    break;
+                }
+                _uncheckedAnswerSlotsIndexes.RemoveAt(_index);//remove the index we used 
+                _chosenSlot = null;
+            }
+
+            if (_chosenSlot == null)
+            {
+                Debug.LogError("Couldn't find an answer slot fill");
+                return;
+            }
+
+            #endregion
+
+            #region FindCorrectSlot
+            foreach (var slot in LetterPool.AllSlots)
+            {
+                if (slot.CurrentLetter != null && slot.CurrentLetter.LetterValue == _answerLetter)
+                {
+                    _resSlot = slot;
+                    break;
+                }
+            }
+
+            if (_resSlot == null)
+            {
+                for (int i = 0; i < AnswerSlots.Count; i++)
+                {
+                    LetterSlot _currentSlot = AnswerSlots[i];
+                    if (_currentSlot.CurrentLetter != null && 
+                        _currentSlot.CurrentLetter.LetterValue != CurrentQuestion.Answer[i].ToString() && //answerslot letter is incorrect
+                        _currentSlot.CurrentLetter.LetterValue == _answerLetter) //answerslot contains the letter we are looking for
+                    {
+                        _resSlot = _currentSlot;
+                    }
+                }
+            }
+
+            if (_resSlot == null)
+            {
+                Debug.LogError("Couldn't find an slot with wanted letter");
+            }
+            #endregion
+
+            _resSlot.SendLetterToSlot(_chosenSlot);
+            OnPoolLetterPicked.Invoke();
+        }
     }
 }

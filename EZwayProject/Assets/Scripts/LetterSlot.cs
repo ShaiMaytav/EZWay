@@ -7,9 +7,6 @@ public class LetterSlot : MonoBehaviour
 {
     public LetterObject CurrentLetter;
 
-    //temp
-    [SerializeField] private PrefabsSO prefabs;
-
     public bool IsEmpty
     {
         get
@@ -32,7 +29,7 @@ public class LetterSlot : MonoBehaviour
 
     public void CreateLetter()
     {
-        CurrentLetter = Instantiate(prefabs.LetterObjectPrefab, transform.position, transform.rotation, transform);
+        CurrentLetter = Instantiate(GameManager.Instance.Prefabs.LetterObjectPrefab, transform.position, transform.rotation, transform);
     }
 
     public void SetLetter(string value)

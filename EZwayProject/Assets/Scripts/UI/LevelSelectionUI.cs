@@ -5,7 +5,8 @@ using UnityEngine;
 public class LevelSelectionUI : MonoBehaviour
 {
     [SerializeField] private RectTransform levelLayout;
-     
+
+
     private List<LevelButton> _levelsButtons = new List<LevelButton>();
     private GameManager _gameManager;
 
@@ -18,7 +19,7 @@ public class LevelSelectionUI : MonoBehaviour
     {
         foreach (var level in GameManager.Instance.Levels)
         {
-            _levelsButtons.Add(Instantiate(GameManager.Instance.prefabs.LevelButtonPrefab, levelLayout));
+            _levelsButtons.Add(Instantiate(GameManager.Instance.Prefabs.LevelButtonPrefab, levelLayout));
         }
     }
 

@@ -10,9 +10,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameplayUI gameplayUI;
 
     private GameManager _gameManager;
+    private static UIManager _instance;
+    public static UIManager Instance { get { return _instance; } }
+
 
     private void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("A UIManager component was removed from " + gameObject.name);
+            Destroy(this);
+        }
+
         _gameManager = GameManager.Instance;
     }
 
@@ -26,5 +39,11 @@ public class UIManager : MonoBehaviour
         mainMenuUI.gameObject.SetActive(false);
         levelSelectionUI.gameObject.SetActive(true);
         levelSelectionUI.UpdateButtonsInfo();
+    }
+
+    public void StartLevel()
+    {
+        levelSelectionUI.gameObject.SetActive(false);
+        gameplayUI.gameObject.SetActive(true);
     }
 }

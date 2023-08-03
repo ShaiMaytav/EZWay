@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int Score;
+    public int Points;
     public List<LevelData> Levels;
-    public PrefabsSO prefabs;
+    public PrefabsSO Prefabs;
+    public DataSO Data;
     public static GameManager Instance { get{return _instance;}}
     private static GameManager _instance;
+
+    public bool CanUseHint { get { return Points >= Data.HintCost; } }
 
     private void Awake()
     {
@@ -23,5 +26,15 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         #endregion
+    }
+
+    public void BuyHint()
+    {
+        Points -= Data.HintCost;
+    }
+
+    public void IncreasePoints()
+    {
+        Points += Data.QuestionReward;
     }
 }
