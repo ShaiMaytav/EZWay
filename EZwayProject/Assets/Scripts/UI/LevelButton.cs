@@ -13,12 +13,12 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private Sprite unlockedIcon;
     [SerializeField] private Button button;
 
-    private int _levelNum;
+    private LevelData _level;
 
     public void UpdateInfo(LevelData level)
     {
-        _levelNum = level.LevelNum;
-        levelText.text = "Level " + _levelNum;
+        _level = level;
+        levelText.text = "Level " + _level.LevelNum;
         completedQuestionsText.text = level.CompletedQuestionsCount + "\\" + level.Questions.Count;
         lockedStatusIcon.overrideSprite = level.isUnlocked ? unlockedIcon : lockedIcon;
         button.onClick.AddListener(StartLevel);
@@ -26,9 +26,12 @@ public class LevelButton : MonoBehaviour
 
     private void StartLevel()
     {
-        UIManager.Instance.StartLevel();
-        LiveGameController.Instance.StartLevel(_levelNum - 1);
-        print("Entering level " + _levelNum);
+        if (_level.isUnlocked)
+        {
+            UIManager.Instance.StartLevel();
+            LiveGameController.Instance.StartLevel(_level.LevelNum - 1);
+            print("Entering level " + _level.LevelNum);
+        }
     }
 
 }

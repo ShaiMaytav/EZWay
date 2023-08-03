@@ -11,7 +11,7 @@ public class LiveGameController : MonoBehaviour
     public RectTransform AnswerSlotsLayout;
     public List<LetterSlot> AnswerSlots;
     public UnityEvent OnPoolLetterPicked;
-
+    public bool canPlay;
 
     [SerializeField] private RectTransform canvas;
 
@@ -40,6 +40,11 @@ public class LiveGameController : MonoBehaviour
         OnPoolLetterPicked.AddListener(AnswerCheck);
     }
 
+    private void OnEnable()
+    {
+        canPlay = true;
+    }
+
     public void StartLevel(int levelNum)
     {
         CurrentLevel = _gameManager.Levels[levelNum];
@@ -49,7 +54,7 @@ public class LiveGameController : MonoBehaviour
 
     public void PickLetter(LetterSlot letterSlot)
     {
-        if (letterSlot.CurrentLetter != null)
+        if (letterSlot.CurrentLetter != null && canPlay)
         {
             //check if slot belongs to pool and calls method accordingly
             if (LetterPool.AllSlots.Contains(letterSlot))
@@ -124,13 +129,14 @@ public class LiveGameController : MonoBehaviour
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
                 _currentQuestionIndex++;
-                GenerateQuestion();
+                UIManager.Instance.QuestionComplete();
             }
             else
             {
                 print("Level complete");
-                //level complete
+                UIManager.Instance.LevelComplete();
             }
+            CurrentLevel.CompletedQuestionsCount++;
         }
     }
 
@@ -145,9 +151,14 @@ public class LiveGameController : MonoBehaviour
         }
     }
 
-    public void NextQueestion()
+    public void NextQueestion()//tbc//
     {
+        GenerateQuestion();
+    }
 
+    public void LevelComplete()//tbc//
+    {
+        UIManager.Instance.GameToLevelSelection();
     }
 
     void GenerateQuestion()
@@ -189,7 +200,7 @@ public class LiveGameController : MonoBehaviour
 
     public void Hint()
     {
-        if (GameManager.Instance.CanUseHint)
+        if (GameManager.Instance.CanUseHint && canPlay)
         {
             GameManager.Instance.BuyHint();
             LetterSlot _resSlot = null; //the slot containing the letter we need  
@@ -248,7 +259,7 @@ public class LiveGameController : MonoBehaviour
                 for (int i = 0; i < AnswerSlots.Count; i++)
                 {
                     LetterSlot _currentSlot = AnswerSlots[i];
-                    if (_currentSlot.CurrentLetter != null && 
+                    if (_currentSlot.CurrentLetter != null &&
                         _currentSlot.CurrentLetter.LetterValue != CurrentQuestion.Answer[i].ToString() && //answerslot letter is incorrect
                         _currentSlot.CurrentLetter.LetterValue == _answerLetter) //answerslot contains the letter we are looking for
                     {

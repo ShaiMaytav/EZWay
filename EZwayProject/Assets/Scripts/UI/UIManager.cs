@@ -38,12 +38,30 @@ public class UIManager : MonoBehaviour
     {
         mainMenuUI.gameObject.SetActive(false);
         levelSelectionUI.gameObject.SetActive(true);
-        levelSelectionUI.UpdateButtonsInfo();
     }
 
     public void StartLevel()
     {
         levelSelectionUI.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(true);
+    }
+
+    public void GameToLevelSelection()
+    {
+        gameplayUI.LevelCompleteWindow.SetActive(false);
+        gameplayUI.QuestionCompleteWindow.SetActive(false);
+        gameplayUI.gameObject.SetActive(false);
+
+        levelSelectionUI.gameObject.SetActive(true);
+    }
+
+    public void LevelComplete()
+    {
+        gameplayUI.LevelCompleteWindow.SetActive(true);
+    }
+
+    public void QuestionComplete()
+    {
+        gameplayUI.QuestionCompleteWindow.SetActive(true);
     }
 }

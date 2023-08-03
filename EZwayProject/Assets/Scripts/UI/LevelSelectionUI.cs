@@ -15,6 +15,11 @@ public class LevelSelectionUI : MonoBehaviour
         _gameManager = GameManager.Instance;
     }
 
+    private void OnEnable()
+    {
+        UpdateButtonsInfo();
+    }
+
     public void CreateLevelsButtons()
     {
         foreach (var level in GameManager.Instance.Levels)

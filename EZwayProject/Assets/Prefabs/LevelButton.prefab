@@ -57,8 +57,8 @@ MonoBehaviour:
   levelText: {fileID: 4624811508189421892}
   completedQuestionsText: {fileID: 5634608529203452163}
   lockedStatusIcon: {fileID: 3998495160092887801}
-  lockedIcon: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
-  unlockedIcon: {fileID: 21300000, guid: 2bb4e96f5d0b02c468932d665a015c54, type: 3}
+  lockedIcon: {fileID: 21300000, guid: 2bb4e96f5d0b02c468932d665a015c54, type: 3}
+  unlockedIcon: {fileID: 21300000, guid: 4a231ba0e81e63849a8f985c228e8acd, type: 3}
   button: {fileID: 2970688300691643485}
 --- !u!1 &2565933283902749907
 GameObject:

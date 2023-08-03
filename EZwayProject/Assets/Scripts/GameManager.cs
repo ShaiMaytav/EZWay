@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public List<LevelData> Levels;
     public PrefabsSO Prefabs;
     public DataSO Data;
-    public static GameManager Instance { get{return _instance;}}
+    public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
     public bool CanUseHint { get { return Points >= Data.HintCost; } }
@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
         #endregion
+    }
+
+    private void Start()
+    {
+        Levels[0].isUnlocked = true;
     }
 
     public void BuyHint()

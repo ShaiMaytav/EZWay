@@ -4,4 +4,8 @@ using UnityEngine;
 
 public static class Helper 
 {
+    public static void OpenURLLink(string urlLink)
+    {
+        Application.OpenURL(urlLink);
+    }
 }
