@@ -135,6 +135,7 @@ public class LiveGameController : MonoBehaviour
             {
                 print("Level complete");
                 UIManager.Instance.LevelComplete();
+                GameManager.Instance.UnlockNextLevel(CurrentLevel);
             }
             CurrentLevel.CompletedQuestionsCount++;
         }

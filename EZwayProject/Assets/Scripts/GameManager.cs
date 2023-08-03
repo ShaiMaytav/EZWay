@@ -33,6 +33,17 @@ public class GameManager : MonoBehaviour
         Levels[0].isUnlocked = true;
     }
 
+    public void UnlockNextLevel(LevelData currentLevel)
+    {
+        for (int i = 0; i < Levels.Count; i++)
+        {
+            if (Levels[i] == currentLevel && i < Levels.Count - 1)
+            {
+                Levels[i + 1].isUnlocked = true;
+            }
+        }
+    }
+
     public void BuyHint()
     {
         Points -= Data.HintCost;
