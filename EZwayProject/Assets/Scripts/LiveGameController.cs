@@ -157,6 +157,12 @@ public class LiveGameController : MonoBehaviour
         GenerateQuestion();
     }
 
+    public void NextLevel()
+    {
+        StartLevel(CurrentLevel.LevelNum); //didnt add 1 since levelnum is larger than its index by 1
+        UIManager.Instance.NextLevel();
+    }
+
     public void LevelComplete()//tbc//
     {
         UIManager.Instance.GameToLevelSelection();

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void BuyHint()
     {
         Points -= Data.HintCost;

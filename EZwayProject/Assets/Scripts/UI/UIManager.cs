@@ -83,6 +83,12 @@ public class UIManager : MonoBehaviour
     {
         gameplayUI.QuestionCompleteWindow.SetActive(true);
     }
+
+    public void NextLevel()
+    {
+        gameplayUI.LevelCompleteWindow.SetActive(false);
+    }
+
     #endregion
 
     #region Tutorial Methods
