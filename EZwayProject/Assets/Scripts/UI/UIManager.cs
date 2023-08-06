@@ -50,10 +50,17 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region LevelSelection Methods
+
     public void StartLevel()
     {
         levelSelectionUI.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(true);
+    }
+
+    public void LevelsToMainMenu()
+    {
+        levelSelectionUI.gameObject.SetActive(false);
+        mainMenuUI.gameObject.SetActive(true);
     }
     #endregion
 
