@@ -34,18 +34,30 @@ public class UIManager : MonoBehaviour
         levelSelectionUI.CreateLevelsButtons();
     }
 
+
+    #region MainMenu Methods
     public void Play()
     {
         mainMenuUI.gameObject.SetActive(false);
         levelSelectionUI.gameObject.SetActive(true);
     }
 
+    public void MainMenuToTutorial()
+    {
+        mainMenuUI.gameObject.SetActive(false);
+        tutorialUI.gameObject.SetActive(true);
+    }
+    #endregion
+
+    #region LevelSelection Methods
     public void StartLevel()
     {
         levelSelectionUI.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(true);
     }
+    #endregion
 
+    #region GameplayUI Methods
     public void GameToLevelSelection()
     {
         gameplayUI.LevelCompleteWindow.SetActive(false);
@@ -64,4 +76,44 @@ public class UIManager : MonoBehaviour
     {
         gameplayUI.QuestionCompleteWindow.SetActive(true);
     }
+    #endregion
+
+    #region Tutorial Methods
+
+    public void ChangeTutorialPage(int step)
+    {
+
+        tutorialUI.Screens[tutorialUI.ScreenIndex].SetActive(false);
+        if (!tutorialUI.PreviousButton.activeSelf)
+        {
+            tutorialUI.PreviousButton.SetActive(true);
+        }
+        else if (!tutorialUI.NextButton.activeSelf)
+        {
+            tutorialUI.NextButton.SetActive(true);
+
+        }
+
+
+        if (tutorialUI.ScreenIndex + step <= 0)
+        {
+            tutorialUI.PreviousButton.SetActive(false);
+        }
+        else if (tutorialUI.ScreenIndex + step >= tutorialUI.Screens.Count - 1)
+        {
+            tutorialUI.NextButton.SetActive(false);
+        }
+
+        tutorialUI.ScreenIndex += step;
+        tutorialUI.Screens[tutorialUI.ScreenIndex].SetActive(true);
+
+    }
+
+    public void TutorialToMainMenu()
+    {
+        tutorialUI.gameObject.SetActive(false);
+        mainMenuUI.gameObject.SetActive(true);
+    }
+
+    #endregion
 }

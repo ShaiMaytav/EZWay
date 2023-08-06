@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class TutorialUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> Screens = new List<GameObject>();
+    public GameObject PreviousButton;
+    public GameObject NextButton;
 
-    // Update is called once per frame
-    void Update()
+    [HideInInspector] public int ScreenIndex = 0;
+
+    private void OnEnable()
     {
-        
+        Screens[ScreenIndex].SetActive(false);
+        ScreenIndex = 0;
+        Screens[ScreenIndex].SetActive(true);
+
+        PreviousButton.SetActive(false);
     }
 }
