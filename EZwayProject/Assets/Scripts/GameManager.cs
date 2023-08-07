@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
-    public string link;
     public bool CanUseHint { get { return Points >= Data.HintCost; } }
 
     private void Awake()
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CallLink()
+    public void CallLink(string link)
     {
         Helper.OpenURLLink(link);
     }

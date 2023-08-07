@@ -173,6 +173,9 @@ public class LiveGameController : MonoBehaviour
         ResetPool();
         CurrentQuestion = CurrentLevel.Questions[_currentQuestionIndex];
         AdjustAnswerSlots();
+        UIManager.Instance.UpdateQuestionText(CurrentQuestion.Example, CurrentQuestion.Condition, CurrentQuestion.Question);
+        UIManager.Instance.UpdateQuestionsTrack((_currentQuestionIndex + 1) + "/" + CurrentLevel.Questions.Count);
+        UIManager.Instance.UpdatePointsText();
         LetterPool.SetLetters();
     }
 

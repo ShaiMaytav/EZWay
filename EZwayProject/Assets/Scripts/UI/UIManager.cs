@@ -89,6 +89,23 @@ public class UIManager : MonoBehaviour
         gameplayUI.LevelCompleteWindow.SetActive(false);
     }
 
+    public void UpdateQuestionText(string example, string condition, string question)
+    {
+        gameplayUI.QuestExampleTxt.text = example;
+        gameplayUI.QuestConditionTxt.text = condition;
+        gameplayUI.QuestQuestionTxt.text = question;
+    }
+
+    public void UpdatePointsText()
+    {
+        gameplayUI.PointsTxt.text = _gameManager.Points.ToString();
+    }
+
+    public void UpdateQuestionsTrack(string _text)
+    {
+       gameplayUI.QuestTrackTxt.text = _text;
+    }
+
     #endregion
 
     #region Tutorial Methods
