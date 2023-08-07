@@ -5,6 +5,9 @@ using UnityEngine;
 public class LetterPool : MonoBehaviour
 {
     public List<LetterSlot> AllSlots;
+
+    [SerializeField] private int maxLetterQuantity = 2;
+
     public bool IsEmpty
     {
         get
@@ -59,7 +62,15 @@ public class LetterPool : MonoBehaviour
     {
         List<LetterSlot> _slots = new List<LetterSlot>(AllSlots);
         LetterSlot tmpSlot;
+
         string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        for (int i = 0; i < maxLetterQuantity - 1; i++)
+        {
+            letters += letters;
+        }
+
+        List<char> lettersList = new List<char>(letters);
 
         //places answer letters randomly in pool
         foreach (var letter in LiveGameController.Instance.CurrentQuestion.Answer)
@@ -73,7 +84,9 @@ public class LetterPool : MonoBehaviour
         for (int i = _slots.Count; i > 0; i--)
         {
             tmpSlot = _slots[Random.Range(0, i)];
-            tmpSlot.SetLetter((letters[Random.Range(0, letters.Length)]).ToString());
+            int _tmpLetterIndex = Random.Range(0, lettersList.Count);
+            tmpSlot.SetLetter((lettersList[_tmpLetterIndex]).ToString());
+            lettersList.RemoveAt(_tmpLetterIndex);
             _slots.Remove(tmpSlot);
         }
     }

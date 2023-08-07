@@ -4426,6 +4426,7 @@ MonoBehaviour:
   - {fileID: 414185699}
   - {fileID: 707187807}
   - {fileID: 2069732689}
+  maxLetterQuantity: 2
 --- !u!1001 &1176401364
 PrefabInstance:
   m_ObjectHideFlags: 0
