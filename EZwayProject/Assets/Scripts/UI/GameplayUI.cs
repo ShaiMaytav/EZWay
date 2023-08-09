@@ -7,6 +7,7 @@ public class GameplayUI : MonoBehaviour
 {
     public GameObject QuestionCompleteWindow;
     public GameObject LevelCompleteWindow;
+    public GameObject NextLevelButton;
     public TMP_Text QuestExampleTxt;
     public TMP_Text QuestConditionTxt;
     public TMP_Text QuestQuestionTxt;

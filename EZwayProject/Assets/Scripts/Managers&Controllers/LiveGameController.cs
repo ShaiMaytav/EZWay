@@ -5,15 +5,16 @@ using UnityEngine.Events;
 
 public class LiveGameController : MonoBehaviour
 {
+    public bool canPlay;
     public LetterPool LetterPool;
     public QuestionData CurrentQuestion;
     public LevelData CurrentLevel;
     public RectTransform AnswerSlotsLayout;
     public List<LetterSlot> AnswerSlots;
     public UnityEvent OnPoolLetterPicked;
-    public bool canPlay;
 
     [SerializeField] private RectTransform canvas;
+    [SerializeField] private float answerCenterOffset = 150;
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
@@ -134,7 +135,7 @@ public class LiveGameController : MonoBehaviour
             else
             {
                 print("Level complete");
-                UIManager.Instance.LevelComplete();
+                UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count);
                 GameManager.Instance.UnlockNextLevel(CurrentLevel);
             }
             CurrentLevel.CompletedQuestionsCount++;
@@ -152,7 +153,7 @@ public class LiveGameController : MonoBehaviour
         }
     }
 
-    public void NextQueestion()//tbc//
+    public void NextQueestion()
     {
         GenerateQuestion();
     }
@@ -163,7 +164,7 @@ public class LiveGameController : MonoBehaviour
         UIManager.Instance.NextLevel();
     }
 
-    public void LevelComplete()//tbc//
+    public void EndLevel()
     {
         UIManager.Instance.GameToLevelSelection();
     }
@@ -199,13 +200,15 @@ public class LiveGameController : MonoBehaviour
             }
         }
 
-        // Set the position of the RectTransform
-        //AnswerSlotsLayout.position = new Vector2((canvas.position.x / 2) * -1, AnswerSlotsLayout.anchoredPosition.y);
+        CenterAnswerLayout();
     }
 
     private void CenterAnswerLayout()
     {
-
+        float offset = answerCenterOffset * (AnswerSlotsLayout.childCount - 1);
+        Vector3 newPos = AnswerSlotsLayout.position;
+        newPos.x  = Screen.width / 2 + offset;
+        AnswerSlotsLayout.position = newPos;
     }
 
     public void Hint()
@@ -213,6 +216,7 @@ public class LiveGameController : MonoBehaviour
         if (GameManager.Instance.CanUseHint && canPlay)
         {
             GameManager.Instance.BuyHint();
+            UIManager.Instance.UpdatePointsText();
             LetterSlot _resSlot = null; //the slot containing the letter we need  
             LetterSlot _chosenSlot = null; //the answer slot chosen to be filled
             string _answerLetter = null; // need this to find the right resSlot

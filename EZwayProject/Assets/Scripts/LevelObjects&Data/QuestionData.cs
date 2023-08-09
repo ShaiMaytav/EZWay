@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionData : MonoBehaviour
+[System.Serializable]
+public class QuestionData 
 {
     public string Example;
     public string Condition;

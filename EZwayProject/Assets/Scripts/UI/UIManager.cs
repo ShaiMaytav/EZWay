@@ -74,9 +74,11 @@ public class UIManager : MonoBehaviour
         levelSelectionUI.gameObject.SetActive(true);
     }
 
-    public void LevelComplete()
+    public void LevelComplete(bool isLastLevel)
     {
         gameplayUI.LevelCompleteWindow.SetActive(true);
+        gameplayUI.NextLevelButton.SetActive(!isLastLevel);
+       
     }
 
     public void QuestionComplete()

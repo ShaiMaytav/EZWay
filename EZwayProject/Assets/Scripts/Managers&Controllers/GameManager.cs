@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public List<LevelData> Levels;
     public PrefabsSO Prefabs;
     public DataSO Data;
+    [SerializeField] private LevelsParser levelsParser;
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Levels = levelsParser.GetLevelsFromSheets();
         Levels[0].isUnlocked = true;
     }
 
