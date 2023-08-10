@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         Levels = levelsParser.GetLevelsFromSheets();
         Levels[0].isUnlocked = true;
+        SyncLevelProgression();
     }
 
     public void UnlockNextLevel(LevelData currentLevel)
@@ -59,5 +60,52 @@ public class GameManager : MonoBehaviour
     public void IncreasePoints()
     {
         Points += Data.QuestionReward;
+    }
+
+    private void SyncLevelProgression()
+    {
+
+        SaveLoad.Instance.Load();
+        List<LevelProgression> levelsProgression = SaveLoad.Instance.LevelsProgression;
+
+        //adjust number of levels from loaded data
+        if (levelsProgression.Count < Levels.Count)
+        {
+            int size = Levels.Count - levelsProgression.Count;
+            for (int i = 0; i < size; i++)
+            {
+                levelsProgression.Add(new LevelProgression());
+            }
+        }
+        else if (levelsProgression.Count > Levels.Count)
+        {
+            int size = levelsProgression.Count - Levels.Count;
+            for (int i = 0; i < size; i++)
+            {
+                levelsProgression.RemoveAt(levelsProgression.Count - 1);
+            }
+        }
+
+        for (int i = 0; i < levelsProgression.Count; i++)
+        {
+            //decrease completed questions in loaded data if needed 
+            if (levelsProgression[i].QuestionsCompleted > Levels[i].Questions.Count)
+            {
+                LevelProgression tmpLvlProg = levelsProgression[i];
+                tmpLvlProg.QuestionsCompleted = Levels[i].Questions.Count;
+                levelsProgression[i] = tmpLvlProg;
+            }
+
+            Levels[i].CompletedQuestionsCount = levelsProgression[i].QuestionsCompleted;
+        }
+
+        //unlock levels
+        for (int i = 0; i < Levels.Count - 1; i++)
+        {
+            if (Levels[i].IsCompleted)
+            {
+                Levels[i + 1].isUnlocked = true;
+            }
+        }
     }
 }

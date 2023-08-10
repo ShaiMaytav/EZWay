@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LetterValue: 
   letterTxt: {fileID: 2587463905585287158}
+  moveSpeed: 0.3
 --- !u!225 &7952090905851530610
 CanvasGroup:
   m_ObjectHideFlags: 0

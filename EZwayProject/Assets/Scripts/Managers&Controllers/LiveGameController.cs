@@ -138,7 +138,15 @@ public class LiveGameController : MonoBehaviour
                 UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count);
                 GameManager.Instance.UnlockNextLevel(CurrentLevel);
             }
-            CurrentLevel.CompletedQuestionsCount++;
+            if (!CurrentLevel.IsCompleted)
+            {
+                CurrentLevel.CompletedQuestionsCount++;
+                SaveLoad data = SaveLoad.Instance;
+                LevelProgression tmpLvlProg = data.LevelsProgression[CurrentLevel.LevelNum - 1];
+                tmpLvlProg.QuestionsCompleted++;
+                data.LevelsProgression[CurrentLevel.LevelNum - 1] = tmpLvlProg;
+                data.Save();
+            }
         }
     }
 
@@ -205,9 +213,9 @@ public class LiveGameController : MonoBehaviour
 
     private void CenterAnswerLayout()
     {
-        float offset = answerCenterOffset * (AnswerSlotsLayout.childCount - 1);
+        float offset = answerCenterOffset * (CurrentQuestion.Answer.Length - 1);
         Vector3 newPos = AnswerSlotsLayout.position;
-        newPos.x  = Screen.width / 2 + offset;
+        newPos.x = Screen.width / 2 + offset;
         AnswerSlotsLayout.position = newPos;
     }
 

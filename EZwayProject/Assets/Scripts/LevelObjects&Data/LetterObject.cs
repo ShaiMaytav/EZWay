@@ -7,6 +7,7 @@ public class LetterObject : MonoBehaviour
 {
     public string LetterValue;
     [SerializeField] private TMP_Text letterTxt;
+    [SerializeField] private float moveSpeed = 1;
 
     public void UpdateLetter(string _letter)
     {
@@ -16,9 +17,13 @@ public class LetterObject : MonoBehaviour
 
     public void ChangeSlot(LetterSlot slot)
     {
+        //slot.CurrentLetter = this;
+        //transform.position = slot.transform.position;
+        //transform.SetParent(slot.transform);
+
         slot.CurrentLetter = this;
-        transform.position = slot.transform.position;
+        Vector3 targetPosition = slot.transform.position;
+        LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad);
         transform.SetParent(slot.transform);
-        
     }
 }

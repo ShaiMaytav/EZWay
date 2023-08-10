@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-    public int num;
-    public string name;
 
-    [ContextMenu("poop")]
+    public List<LevelProgression> LevelsProgression = new List<LevelProgression>();
+
+    private static SaveLoad _instance;
+    public static SaveLoad Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("A SaveLoad component was removed from " + gameObject.name);
+            Destroy(this);
+        }
+    }
+
+    [ContextMenu("save")]
     public void Save()
     {
         string data = JsonUtility.ToJson(this);
@@ -16,11 +32,18 @@ public class SaveLoad : MonoBehaviour
 
     }
 
-    [ContextMenu("pee")]
+    [ContextMenu("load")]
     public void Load()
     {
         string path = Application.persistentDataPath + "SaveLoad.json";
         string data = System.IO.File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(data, this);
     }
+}
+
+[System.Serializable]
+public struct LevelProgression
+{
+    public int LevelNum;
+    public int QuestionsCompleted;
 }
