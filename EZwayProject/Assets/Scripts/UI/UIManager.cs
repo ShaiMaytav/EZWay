@@ -144,6 +144,7 @@ public class UIManager : MonoBehaviour
     public void TutorialToMainMenu()
     {
         tutorialUI.gameObject.SetActive(false);
+        tutorialUI.NextButton.gameObject.SetActive(true);
         mainMenuUI.gameObject.SetActive(true);
     }
 
