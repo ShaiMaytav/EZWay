@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Invoke("Init", 0.05f);
+    }
+
+    private void Init()
+    {
         Levels = levelsParser.GetLevelsFromSheets();
         Levels[0].isUnlocked = true;
         SyncLevelProgression();

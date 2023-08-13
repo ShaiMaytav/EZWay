@@ -31,9 +31,13 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        levelSelectionUI.CreateLevelsButtons();
+        Invoke("Init", 0.1f);
     }
 
+    private void Init()
+    {
+        levelSelectionUI.CreateLevelsButtons();
+    }
 
     #region MainMenu Methods
     public void Play()

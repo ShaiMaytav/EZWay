@@ -70,7 +70,7 @@ public class TestShare : MonoBehaviour
 
     private void shareScreenshot(string path)
     {
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "Share Message", "Share By sunshine");
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "Hey! think you can help?", "Share By sunshine");
     }
 
     public void ShareText()
