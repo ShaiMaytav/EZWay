@@ -26,6 +26,7 @@ public class SaveLoad : MonoBehaviour
     [ContextMenu("save")]
     public void Save()
     {
+        Debug.Log("Saved Game");
         string data = JsonUtility.ToJson(this);
         string path = Application.persistentDataPath + "SaveLoad.json";
         System.IO.File.WriteAllText(path, data);
@@ -35,9 +36,16 @@ public class SaveLoad : MonoBehaviour
     [ContextMenu("load")]
     public void Load()
     {
-        string path = Application.persistentDataPath + "SaveLoad.json";
-        string data = System.IO.File.ReadAllText(path);
-        JsonUtility.FromJsonOverwrite(data, this);
+        Debug.Log("Tried Load Game");
+
+        if (System.IO.File.Exists(Application.persistentDataPath + "SaveLoad.json"))
+        {
+            Debug.Log("Success Load Game");
+
+            string path = Application.persistentDataPath + "SaveLoad.json";
+            string data = System.IO.File.ReadAllText(path);
+            JsonUtility.FromJsonOverwrite(data, this);
+        }
     }
 }
 
