@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LevelSelectionUI levelSelectionUI;
     [SerializeField] private TutorialUI tutorialUI;
     [SerializeField] private GameplayUI gameplayUI;
+    [SerializeField] private GameObject NoConnectionUI;
 
     private GameManager _gameManager;
     private static UIManager _instance;
@@ -50,6 +51,18 @@ public class UIManager : MonoBehaviour
     {
         mainMenuUI.gameObject.SetActive(false);
         tutorialUI.gameObject.SetActive(true);
+    }
+
+    public void Startup(bool isConnected)
+    {
+        if (isConnected)
+        {
+            mainMenuUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            NoConnectionUI.SetActive(true);
+        }
     }
     #endregion
 

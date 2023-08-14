@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Init", 0.05f);
+        CheckConnection();
     }
 
     private void Init()
@@ -112,5 +113,23 @@ public class GameManager : MonoBehaviour
                 Levels[i + 1].isUnlocked = true;
             }
         }
+    }
+
+    private void CheckConnection()
+    {
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            Invoke("Init", 0.05f);
+            UIManager.Instance.Startup(true);
+        }
+        else
+        {
+            UIManager.Instance.Startup(false);
+        }
+    }
+
+    public void RestartApp()
+    {
+        SceneManager.LoadScene(0);
     }
 }

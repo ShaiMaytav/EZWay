@@ -34,8 +34,6 @@ public class SheetReader : MonoBehaviour
         }
         else
         {
-            Debug.Log(credentialsJson);
-            Debug.Log("POOP!!!");
             credentialsJson = www.downloadHandler.text;
         }
 #endif
@@ -45,7 +43,6 @@ public class SheetReader : MonoBehaviour
         if (File.Exists(iOSJsonPath))
         {
             credentialsJson = File.ReadAllText(iOSJsonPath);
-            // Now you can use the jsonContent string as needed
             Debug.Log("JSON loaded successfully: " + jsonContent);
         }
 #endif
@@ -66,14 +63,16 @@ public class SheetReader : MonoBehaviour
             Debug.LogError("JSON file not found at path: " + winJsonPath);
         }
 #endif
+        if (Application.internetReachability != NetworkReachability.NotReachable)
+        {
+            Stream creds = GenerateStreamFromString(credentialsJson);
+            ServiceAccountCredential serviceAccountCredential = ServiceAccountCredential.FromServiceAccountData(creds);
+            service = new SheetsService(new BaseClientService.Initializer() { HttpClientInitializer = serviceAccountCredential });
 
-        Stream creds = GenerateStreamFromString(credentialsJson);
-        ServiceAccountCredential serviceAccountCredential = ServiceAccountCredential.FromServiceAccountData(creds);
-        service = new SheetsService(new BaseClientService.Initializer() { HttpClientInitializer = serviceAccountCredential });
-
-        var request = service.Spreadsheets.Values.Get(spreadsheetID, range);
-        var response = request.Execute();
-        var values = response.Values;
+            var request = service.Spreadsheets.Values.Get(spreadsheetID, range);
+            var response = request.Execute();
+            var values = response.Values;
+        }
         yield return null;
     }
 
