@@ -20,13 +20,13 @@ public class LevelButton : MonoBehaviour
         _level = level;
         levelText.text = "Level " + _level.LevelNum;
         completedQuestionsText.text = level.CompletedQuestionsCount + "\\" + level.Questions.Count;
-        lockedStatusIcon.overrideSprite = level.isUnlocked ? unlockedIcon : lockedIcon;
+        lockedStatusIcon.overrideSprite = level.IsUnlocked ? unlockedIcon : lockedIcon;
         button.onClick.AddListener(StartLevel);
     }
 
     private void StartLevel()
     {
-        if (_level.isUnlocked)
+        if (_level.IsUnlocked)
         {
             UIManager.Instance.StartLevel();
             LiveGameController.Instance.StartLevel(_level.LevelNum - 1);

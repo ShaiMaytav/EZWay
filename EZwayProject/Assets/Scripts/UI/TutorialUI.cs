@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialUI : MonoBehaviour
+public class TutorialUI : BaseUIElement
 {
     public List<GameObject> Screens = new List<GameObject>();
     public GameObject PreviousButton;

@@ -126,7 +126,7 @@ public class LiveGameController : MonoBehaviour
         if (answer == CurrentQuestion.Answer)
         {
             print("Correct");
-            GameManager.Instance.IncreasePoints();
+            GameManager.Instance.IncreasePoints(GameManager.Instance.Data.QuestionReward);
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
                 _currentQuestionIndex++;
@@ -135,7 +135,9 @@ public class LiveGameController : MonoBehaviour
             else
             {
                 print("Level complete");
+                GameManager.Instance.IncreasePoints(_gameManager.Data.LevelReward);
                 UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count);
+                UIManager.Instance.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward);
                 GameManager.Instance.UnlockNextLevel(CurrentLevel);
             }
             if (!CurrentLevel.IsCompleted)

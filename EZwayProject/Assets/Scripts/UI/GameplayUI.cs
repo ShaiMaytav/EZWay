@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameplayUI : MonoBehaviour
+public class GameplayUI : BaseUIElement
 {
     public GameObject QuestionCompleteWindow;
-    public GameObject LevelCompleteWindow;
+    public LevelCompleteUI LevelCompleteWindow;
     public GameObject NextLevelButton;
     public TMP_Text QuestExampleTxt;
     public TMP_Text QuestConditionTxt;

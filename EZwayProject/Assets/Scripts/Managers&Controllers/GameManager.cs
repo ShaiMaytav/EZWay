@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         Levels = levelsParser.GetLevelsFromSheets();
-        Levels[0].isUnlocked = true;
+        Levels[0].IsUnlocked = true;
         SyncLevelProgression();
     }
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             if (Levels[i] == currentLevel && i < Levels.Count - 1)
             {
-                Levels[i + 1].isUnlocked = true;
+                Levels[i + 1].IsUnlocked = true;
             }
         }
     }
@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
         Points -= Data.HintCost;
     }
 
-    public void IncreasePoints()
+    public void IncreasePoints(int pointsToAdd)
     {
-        Points += Data.QuestionReward;
+        Points += pointsToAdd;
     }
 
     private void SyncLevelProgression()
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         {
             if (Levels[i].IsCompleted)
             {
-                Levels[i + 1].isUnlocked = true;
+                Levels[i + 1].IsUnlocked = true;
             }
         }
     }

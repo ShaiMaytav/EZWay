@@ -6,7 +6,8 @@ using UnityEngine;
 public class LevelData 
 {
     public int LevelNum;
-    public bool isUnlocked;
+    public bool IsUnlocked;
+    public int RewardPoints;
     public List<QuestionData> Questions = new List<QuestionData>();
     [HideInInspector] public int CompletedQuestionsCount = 0;
     public int QuestionsAmount { get { return Questions.Count; } }

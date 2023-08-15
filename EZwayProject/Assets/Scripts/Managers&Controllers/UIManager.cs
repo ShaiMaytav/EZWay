@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
     #region GameplayUI Methods
     public void GameToLevelSelection()
     {
-        gameplayUI.LevelCompleteWindow.SetActive(false);
+        gameplayUI.LevelCompleteWindow.gameObject.SetActive(false);
         gameplayUI.QuestionCompleteWindow.SetActive(false);
         gameplayUI.gameObject.SetActive(false);
 
@@ -94,9 +94,8 @@ public class UIManager : MonoBehaviour
 
     public void LevelComplete(bool isLastLevel)
     {
-        gameplayUI.LevelCompleteWindow.SetActive(true);
+        gameplayUI.LevelCompleteWindow.gameObject.SetActive(true);
         gameplayUI.NextLevelButton.SetActive(!isLastLevel);
-       
     }
 
     public void QuestionComplete()
@@ -106,7 +105,7 @@ public class UIManager : MonoBehaviour
 
     public void NextLevel()
     {
-        gameplayUI.LevelCompleteWindow.SetActive(false);
+        gameplayUI.LevelCompleteWindow.gameObject.SetActive(false);
     }
 
     public void UpdateQuestionText(string example, string condition, string question)
@@ -124,6 +123,12 @@ public class UIManager : MonoBehaviour
     public void UpdateQuestionsTrack(string _text)
     {
        gameplayUI.QuestTrackTxt.text = _text;
+    }
+
+    public void UpdateLevelCompletionWindow(int reward)
+    {
+        gameplayUI.LevelCompleteWindow.EncourageTxt.text = _gameManager.Data.GetRandomEncouragement();
+        gameplayUI.LevelCompleteWindow.PointsTxt.text = reward.ToString();
     }
 
     #endregion

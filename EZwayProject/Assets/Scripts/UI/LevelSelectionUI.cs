@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectionUI : MonoBehaviour
+public class LevelSelectionUI : BaseUIElement
 {
     [SerializeField] private RectTransform levelLayout;
 
