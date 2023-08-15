@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TutorialUI tutorialUI;
     [SerializeField] private GameplayUI gameplayUI;
     [SerializeField] private GameObject NoConnectionUI;
+    [SerializeField] private GameObject optionsWindowsUI;
 
     private GameManager _gameManager;
     private static UIManager _instance;
@@ -162,6 +163,31 @@ public class UIManager : MonoBehaviour
     {
         tutorialUI.gameObject.SetActive(false);
         tutorialUI.NextButton.gameObject.SetActive(true);
+        mainMenuUI.gameObject.SetActive(true);
+    }
+
+    #endregion
+
+    #region Other Methods
+
+    public void ToggleOptions()
+    {
+        optionsWindowsUI.SetActive(!optionsWindowsUI.activeSelf);
+    }
+
+    public void OptionsToMenu()
+    {
+        ToggleOptions();
+
+        if (gameplayUI.gameObject.activeSelf)
+        {
+            gameplayUI.gameObject.SetActive(false);
+        }
+        else if (levelSelectionUI.gameObject.activeSelf)
+        {
+            levelSelectionUI.gameObject.SetActive(false);
+        }
+
         mainMenuUI.gameObject.SetActive(true);
     }
 
