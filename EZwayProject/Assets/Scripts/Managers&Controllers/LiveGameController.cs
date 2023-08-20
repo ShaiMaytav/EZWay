@@ -277,21 +277,14 @@ public class LiveGameController : MonoBehaviour
     private void CenterAnswerLayout()
     {
         float offset = answerCenterOffset * (CurrentQuestion.Answer.Length - 1);
-        Vector3 newPos = AnswerSlotsLayout.anchoredPosition;
+        Vector3 newPos = AnswerSlotsLayout.position;
         newPos.x = Screen.width / 2 + offset;
 
-        float X = answerSlotGap * CurrentQuestion.Answer.Length;
-        float X2 = X / 2;
-        float Y = asnwerSlotSpacingLayout / 2;
 
-        newPos.x -= X2;
-        newPos.x -= Y;
+        AnswerSlotsLayout.position = newPos;
 
 
-        AnswerSlotsLayout.anchoredPosition = newPos;
-
-
-
+        AnswerSlotsLayout.anchoredPosition = new Vector3(AnswerSlotsLayout.anchoredPosition.x / 100, AnswerSlotsLayout.anchoredPosition.y);
 
 
 
