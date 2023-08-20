@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject optionsWindowsUI;
     [SerializeField] private Image background;
 
+    [Header("Translucent data")]
+    [SerializeField] private GameObject TranslucentImage;
+
     private GameManager _gameManager;
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
@@ -87,6 +90,8 @@ public class UIManager : MonoBehaviour
     #region GameplayUI Methods
     public void GameToLevelSelection()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         gameplayUI.LevelCompleteWindow.gameObject.SetActive(false);
         gameplayUI.QuestionCompleteWindow.SetActive(false);
         gameplayUI.gameObject.SetActive(false);
@@ -96,6 +101,9 @@ public class UIManager : MonoBehaviour
 
     public void LevelComplete(bool isLastLevel, bool isFirstTime)
     {
+        AudioManager._instance.PlaySFX(Sounds.LevelComplete);
+
+        TranslucentImage.SetActive(true);
         gameplayUI.LevelCompleteWindow.gameObject.SetActive(true);
         gameplayUI.NextLevelButton.SetActive(!isLastLevel);
 
@@ -105,6 +113,7 @@ public class UIManager : MonoBehaviour
 
     public void QuestionComplete()
     {
+
         gameplayUI.QuestionCompleteWindow.SetActive(true);
     }
 
@@ -138,11 +147,17 @@ public class UIManager : MonoBehaviour
 
     public void EnableNoPointsMenu()
     {
+        AudioManager._instance.PlaySFX(Sounds.Negative);
+
+        TranslucentImage.SetActive(true);
+
         gameplayUI.NotEnoughPointsWindow.SetActive(true);
     }
 
     public void EnableOfferMenu()
     {
+        TranslucentImage.SetActive(true);
+
         gameplayUI.OfferWindow.SetActive(true);
     }
 
@@ -159,7 +174,7 @@ public class UIManager : MonoBehaviour
         //change fonts color
         foreach (var text in gameplayUI.AllGemaplayTexts)
         {
-            text.color = theme.FontColor;
+            text.color = theme.GeneralFontColor;
         }
         
         gameplayUI.BurgerImage.sprite = theme.BurgerImage;
@@ -179,6 +194,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeTutorialPage(int step)
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
 
         tutorialUI.Screens[tutorialUI.ScreenIndex].SetActive(false);
         if (!tutorialUI.PreviousButton.activeSelf)
@@ -208,6 +224,8 @@ public class UIManager : MonoBehaviour
 
     public void TutorialToMainMenu()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         tutorialUI.gameObject.SetActive(false);
         tutorialUI.NextButton.gameObject.SetActive(true);
         mainMenuUI.gameObject.SetActive(true);
@@ -219,6 +237,8 @@ public class UIManager : MonoBehaviour
 
     public void ToggleOptions()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         optionsWindowsUI.SetActive(!optionsWindowsUI.activeSelf);
     }
 

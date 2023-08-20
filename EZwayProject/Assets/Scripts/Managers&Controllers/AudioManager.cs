@@ -1,24 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+public enum Sounds
+{
+    ExtractLetter,
+    InsertLetter,
+    LevelComplete,
+    Negative,
+    QuestionComplete,
+    UIClick
+}
+
 public class AudioManager : MonoBehaviour
 {
-    public enum Sounds
-    {
-        Click,
-        Toggle,
-        LevelComplete,
-        QuestAnswered
-    }
 
-    [System.Serializable]
-    public class Sound
-    {
-        public Sounds type;
-        public AudioSource audioSource;
-    }
+    //[System.Serializable]
+    //public class Sound
+    //{
+    //    public Sounds type;
+    //    public AudioSource audioSource;
+    //}
 
     [SerializeField] private AudioMixer mainMixer;
     [Range(0, 100)]
@@ -26,16 +30,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup sfxMixer;
     [Range(0, 100)]
     [SerializeField] private float sfxVolume = 0;
-    [SerializeField] private List<Sound> sfxSounds;
+    [SerializeField] private List<AudioSource> sfxSources;
 
-    public AudioManager Instance { get { return _instance; } private set { } }
-    private AudioManager _instance;
+    Dictionary<Sounds, AudioSource> sfxSoundsDict;
+    public static AudioManager _instance;
 
     private void OnValidate()
     {
-        foreach (var sound in sfxSounds)
+        foreach (var sound in sfxSources)
         {
-            sound.audioSource.outputAudioMixerGroup = sfxMixer;
+            sound.outputAudioMixerGroup = sfxMixer;
         }
 
     }
@@ -56,6 +60,14 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        sfxSoundsDict = new Dictionary<Sounds, AudioSource>();
+
+
+        for (int i = 0; i < Enum.GetValues(typeof(Sounds)).Length; i++)
+        {
+            sfxSoundsDict.Add((Sounds)i, sfxSources[i]);
+        }
+
         // -80 because of minimum decibles of unity audio mixsers
         mainMixer.SetFloat("MasterVolume", mainVolume - 80);
         mainMixer.SetFloat("SFXVolume", sfxVolume - 80);
@@ -63,34 +75,19 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            PlaySFX(Sounds.Click);
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    PlaySFX(Sounds.UIClick);
+        //}
     }
 
     public void PlaySFX(Sounds soundType)
     {
-        foreach (var sound in sfxSounds)
-        {
-            if (sound.type == soundType)
-            {
-                sound.audioSource.Play();
-                break;
-            }
-        }
+        sfxSoundsDict[soundType].Play();
     }
-
-    public void PlaySFX(string soundName)
+    public void PlaySFX(int soundIndex)
     {
-        foreach (var sound in sfxSounds)
-        {
-            if (sound.type.ToString() == soundName)
-            {
-                sound.audioSource.Play();
-                break;
-            }
-        }
+        sfxSoundsDict[(Sounds)soundIndex].Play();
     }
 
     public void ToggleGroupVolume(string groupVolName)
@@ -102,9 +99,21 @@ public class AudioManager : MonoBehaviour
         {
             case "SFXVolume":
                 mainMixer.SetFloat(groupVolName, curVolume == -80 ? sfxVolume - 80 : -80);
+                
+                if(curVolume == -80)
+                {
+                    PlaySFX(Sounds.UIClick);
+                }
+
+
                 break;
             case "MasterVolume":
                 mainMixer.SetFloat(groupVolName, curVolume == -80 ? mainVolume - 80 : -80);
+
+                if (curVolume == -80)
+                {
+                    PlaySFX(Sounds.UIClick);
+                }
                 break;
             default:
                 break;

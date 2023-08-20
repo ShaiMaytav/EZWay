@@ -15,10 +15,15 @@ public class LiveGameController : MonoBehaviour
 
     [SerializeField] private RectTransform canvas;
     [SerializeField] private float answerCenterOffset = 150;
+    [SerializeField] private float answerSlotGap = 185;
+    [SerializeField] private float asnwerSlotSpacingLayout = 85;
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
     private UITheme _currentTheme;
+
+
+    public GameObject inermediateParent;
 
     public static LiveGameController Instance { get { return _instance; } }
     private static LiveGameController _instance;
@@ -91,6 +96,8 @@ public class LiveGameController : MonoBehaviour
 
     private void PoolToAnswer(LetterSlot letterSlot)
     {
+        AudioManager._instance.PlaySFX(Sounds.InsertLetter);
+
         LetterSlot _tmpSlot = null;
 
         //gets first empty slot of answer slots
@@ -115,6 +122,8 @@ public class LiveGameController : MonoBehaviour
 
     private void AnswerToPool(LetterSlot letterSlot)
     {
+        AudioManager._instance.PlaySFX(Sounds.ExtractLetter);
+
         LetterSlot _tmpSlot = LetterPool.EmptySlots[Random.Range(0, LetterPool.EmptySlots.Count)];
 
         if (_tmpSlot == null)
@@ -146,6 +155,8 @@ public class LiveGameController : MonoBehaviour
 
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
+                AudioManager._instance.PlaySFX(Sounds.QuestionComplete);
+
                 _currentQuestionIndex++;
                 GenerateQuestion();
 
@@ -213,12 +224,16 @@ public class LiveGameController : MonoBehaviour
 
     public void NextLevel()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         StartLevel(CurrentLevel.LevelNum); //didnt add 1 since levelnum is larger than its index by 1
         UIManager.Instance.NextLevel();
     }
 
     public void EndLevel()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         UIManager.Instance.GameToLevelSelection();
     }
 
@@ -258,18 +273,38 @@ public class LiveGameController : MonoBehaviour
         CenterAnswerLayout();
     }
 
+    [ContextMenu("Test now")]
     private void CenterAnswerLayout()
     {
         float offset = answerCenterOffset * (CurrentQuestion.Answer.Length - 1);
-        Vector3 newPos = AnswerSlotsLayout.position;
+        Vector3 newPos = AnswerSlotsLayout.anchoredPosition;
         newPos.x = Screen.width / 2 + offset;
-        AnswerSlotsLayout.position = newPos;
+
+        float X = answerSlotGap * CurrentQuestion.Answer.Length;
+        float X2 = X / 2;
+        float Y = asnwerSlotSpacingLayout / 2;
+
+        newPos.x -= X2;
+        newPos.x -= Y;
+
+
+        AnswerSlotsLayout.anchoredPosition = newPos;
+
+
+
+
+
+
+
+
     }
 
     public void Hint()
     {
         if (GameManager.Instance.CanUseHint && canPlay)
         {
+            AudioManager._instance.PlaySFX(Sounds.UIClick);
+
             GameManager.Instance.BuyHint();
             UIManager.Instance.UpdatePointsText();
             LetterSlot _resSlot = null; //the slot containing the letter we need  

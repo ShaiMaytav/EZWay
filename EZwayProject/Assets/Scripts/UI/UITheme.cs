@@ -15,5 +15,6 @@ public class UITheme
     public Sprite SlotSprite;
     public Sprite PointsBackgroundImage;
     public Sprite BurgerImage;
-    public Color FontColor;
+    public Color GeneralFontColor;
+    public Color LettersFontColor;
 }

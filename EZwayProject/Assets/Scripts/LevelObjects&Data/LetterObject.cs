@@ -23,15 +23,22 @@ public class LetterObject : MonoBehaviour
         //transform.position = slot.transform.position;
         //transform.SetParent(slot.transform);
 
+        transform.SetParent(LiveGameController.Instance.inermediateParent.transform);
+
+
         slot.CurrentLetter = this;
         Vector3 targetPosition = slot.transform.position;
-        LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad);
-        transform.SetParent(slot.transform);
+        LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad).setOnComplete(() => OnEndLetterMove(slot));
     }
 
+    private void OnEndLetterMove(LetterSlot slot)
+    {
+        transform.SetParent(slot.transform);
+
+    }
     public void ChangeColors(UITheme theme) 
     {
         backgroundImage.sprite = theme.ButtonsSprite;
-        letterTxt.color = theme.FontColor;
+        //letterTxt.color = theme.LettersFontColor;
     }
 }

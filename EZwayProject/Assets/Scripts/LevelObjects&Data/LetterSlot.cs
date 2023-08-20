@@ -6,6 +6,8 @@ using TMPro;
 
 public class LetterSlot : MonoBehaviour
 {
+
+
     public LetterObject CurrentLetter;
     [SerializeField] private Image backgroundImage;
 

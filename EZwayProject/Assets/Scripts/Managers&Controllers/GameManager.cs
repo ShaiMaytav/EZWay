@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateLevelIcon();
     }
 
+    [ContextMenu("Update title")]
+    private void ManualUpdateTitle()
+    {
+        UIManager.Instance.UpdateLevelIcon();
+    }
+
     public void UnlockNextLevel(LevelData currentLevel)
     {
         for (int i = 0; i < Levels.Count; i++)
@@ -58,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     public void CallLink(string link)
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         Helper.OpenURLLink(link);
     }
 
@@ -146,6 +154,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartApp()
     {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
         SceneManager.LoadScene(0);
     }
 }

@@ -28,10 +28,17 @@ public class LevelButton : MonoBehaviour
     {
         if (_level.IsUnlocked)
         {
+            AudioManager._instance.PlaySFX(Sounds.UIClick);
+
             UIManager.Instance.StartLevel();
             LiveGameController.Instance.StartLevel(_level.LevelNum - 1);
             print("Entering level " + _level.LevelNum);
         }
+        else
+        {
+            AudioManager._instance.PlaySFX(Sounds.Negative);
+        }
+
     }
 
 }
