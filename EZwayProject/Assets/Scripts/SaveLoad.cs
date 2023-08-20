@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-
+    public int SavedTitleRank;
+    public int SavedPoints;
     public List<LevelProgression> LevelsProgression = new List<LevelProgression>();
 
     private static SaveLoad _instance;
@@ -54,4 +55,5 @@ public struct LevelProgression
 {
     public int LevelNum;
     public int QuestionsCompleted;
+    public bool didOffer;
 }

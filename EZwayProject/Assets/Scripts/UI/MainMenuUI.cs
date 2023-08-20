@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class MainMenuUI : BaseUIElement
 {
-    
+    private void OnEnable()
+    {
+        UIManager.Instance.ChangeBackgroundColors(GameManager.Instance.Data.MainTheme);
+    }
 }

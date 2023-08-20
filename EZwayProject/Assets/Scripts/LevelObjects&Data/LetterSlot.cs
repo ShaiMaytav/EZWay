@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LetterSlot : MonoBehaviour
 {
     public LetterObject CurrentLetter;
+    [SerializeField] private Image backgroundImage;
 
     public bool IsEmpty
     {
@@ -44,5 +46,10 @@ public class LetterSlot : MonoBehaviour
     {
         CurrentLetter.ChangeSlot(slot);
         CurrentLetter = null;
+    }
+
+    public void ChangeColors(UITheme theme)
+    {
+        backgroundImage.sprite = theme.SlotSprite;
     }
 }

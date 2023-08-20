@@ -8,10 +8,20 @@ public class DataSO : ScriptableObject
     public int HintCost;
     public int QuestionReward;
     public int LevelReward;
-    public List<string> encouragements;
+    public List<string> Encouragements;
+    public UITheme MainTheme;
+    public List<UITheme> Themes;
+    public List<Sprite> TitleSprites;
 
     public string GetRandomEncouragement()
     {
-        return encouragements[Random.Range(0, encouragements.Count)];
+        return Encouragements[Random.Range(0, Encouragements.Count)];
     }
+
+    public Sprite GetTitleIcon(int rank)
+    {
+        return TitleSprites[rank];
+    }
+   
 }
+

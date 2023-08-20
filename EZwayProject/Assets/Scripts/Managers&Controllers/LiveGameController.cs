@@ -18,6 +18,7 @@ public class LiveGameController : MonoBehaviour
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
+    private UITheme _currentTheme;
 
     public static LiveGameController Instance { get { return _instance; } }
     private static LiveGameController _instance;
@@ -49,8 +50,23 @@ public class LiveGameController : MonoBehaviour
     public void StartLevel(int levelNum)
     {
         CurrentLevel = _gameManager.Levels[levelNum];
+
+        //start from last unanswered question, if level completed start from begining
         _currentQuestionIndex = CurrentLevel.CompletedQuestionsCount == CurrentLevel.Questions.Count ? 0 : CurrentLevel.CompletedQuestionsCount;
+
+        if (!CurrentLevel.DidOffer)
+        {
+            UIManager.Instance.EnableOfferMenu();
+            CurrentLevel.DidOffer = true;
+            SaveLoad data = SaveLoad.Instance;
+            LevelProgression tmpLvlProg = data.LevelsProgression[CurrentLevel.LevelNum - 1];
+            tmpLvlProg.didOffer = CurrentLevel.DidOffer;
+            data.LevelsProgression[CurrentLevel.LevelNum - 1] = tmpLvlProg;
+            data.Save();
+        }
+
         GenerateQuestion();
+        ChangeTheme();
     }
 
     public void PickLetter(LetterSlot letterSlot)
@@ -126,29 +142,54 @@ public class LiveGameController : MonoBehaviour
         if (answer == CurrentQuestion.Answer)
         {
             print("Correct");
-            GameManager.Instance.IncreasePoints(GameManager.Instance.Data.QuestionReward);
+
+
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
                 _currentQuestionIndex++;
-                UIManager.Instance.QuestionComplete();
+                GenerateQuestion();
+
+                //Update answers slots color ////////////TBI////////////////
+                foreach (var slot in AnswerSlots)
+                {
+                    slot.ChangeColors(_currentTheme);
+                }
+
+
+                //UIManager.Instance.QuestionComplete(); //opens window between questions
+
+
             }
             else
             {
                 print("Level complete");
-                GameManager.Instance.IncreasePoints(_gameManager.Data.LevelReward);
-                UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count);
+                //first time completing a level
+                if (!CurrentLevel.IsCompleted)
+                {
+                    _gameManager.IncreasePoints(_gameManager.Data.LevelReward);
+                    _gameManager.IncreaseTitleRank();
+                }
+
+                UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count, !CurrentLevel.IsCompleted);
                 UIManager.Instance.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward);
                 GameManager.Instance.UnlockNextLevel(CurrentLevel);
             }
+
             if (!CurrentLevel.IsCompleted)
             {
+                GameManager.Instance.IncreasePoints(_gameManager.Data.QuestionReward);
+                UIManager.Instance.UpdatePointsText();
+
                 CurrentLevel.CompletedQuestionsCount++;
+
                 SaveLoad data = SaveLoad.Instance;
                 LevelProgression tmpLvlProg = data.LevelsProgression[CurrentLevel.LevelNum - 1];
                 tmpLvlProg.QuestionsCompleted++;
                 data.LevelsProgression[CurrentLevel.LevelNum - 1] = tmpLvlProg;
                 data.Save();
             }
+
+            SaveLoad.Instance.SavedPoints = _gameManager.Points;
         }
     }
 
@@ -166,6 +207,8 @@ public class LiveGameController : MonoBehaviour
     public void NextQueestion()
     {
         GenerateQuestion();
+
+       
     }
 
     public void NextLevel()
@@ -179,6 +222,7 @@ public class LiveGameController : MonoBehaviour
         UIManager.Instance.GameToLevelSelection();
     }
 
+    //displays current question and changes the letter pool 
     void GenerateQuestion()
     {
         ResetPool();
@@ -198,7 +242,8 @@ public class LiveGameController : MonoBehaviour
         {
             for (int i = 0; i < slotsDelta; i++)
             {
-                AnswerSlots.Add(Instantiate(_gameManager.Prefabs.LetteSlotrPrefab, AnswerSlotsLayout));
+                LetterSlot newSlot = Instantiate(_gameManager.Prefabs.LetteSlotrPrefab, AnswerSlotsLayout);
+                AnswerSlots.Add(newSlot);
             }
         }
         else
@@ -301,5 +346,33 @@ public class LiveGameController : MonoBehaviour
             _resSlot.SendLetterToSlot(_chosenSlot);
             OnPoolLetterPicked.Invoke();
         }
+        else
+        {
+            UIManager.Instance.EnableNoPointsMenu();
+        }
+    }
+
+    private void ChangeTheme()
+    {
+        //this makes sure that a level will habe a theme even if there its number is greater than the amount of themes
+        int themeIndex = (CurrentLevel.LevelNum - 1) % _gameManager.Data.Themes.Count;
+        
+        _currentTheme = _gameManager.Data.Themes[themeIndex];
+
+        UIManager.Instance.ChangeUITheme(_currentTheme);
+
+        //change letterpool slots and letter colors
+        foreach (var slot in LetterPool.AllSlots)
+        {
+            slot.ChangeColors(_currentTheme);
+            slot.CurrentLetter.ChangeColors(_currentTheme);
+        }
+
+        //change answers slots color
+        foreach (var slot in AnswerSlots)
+        {
+            slot.ChangeColors(_currentTheme);
+        }
+
     }
 }
