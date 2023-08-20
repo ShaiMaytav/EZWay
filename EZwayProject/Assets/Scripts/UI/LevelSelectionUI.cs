@@ -18,6 +18,8 @@ public class LevelSelectionUI : BaseUIElement
     private void OnEnable()
     {
         UpdateButtonsInfo();
+
+        UIManager.Instance.ChangeBackgroundColors(GameManager.Instance.Data.MainTheme);
     }
 
     public void CreateLevelsButtons()

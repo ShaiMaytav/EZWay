@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LetterObject : MonoBehaviour
 {
     public string LetterValue;
+    [SerializeField] private Image backgroundImage;
     [SerializeField] private TMP_Text letterTxt;
     [SerializeField] private float moveSpeed = 1;
 
@@ -25,5 +27,11 @@ public class LetterObject : MonoBehaviour
         Vector3 targetPosition = slot.transform.position;
         LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad);
         transform.SetParent(slot.transform);
+    }
+
+    public void ChangeColors(UITheme theme) 
+    {
+        backgroundImage.sprite = theme.ButtonsSprite;
+        letterTxt.color = theme.FontColor;
     }
 }

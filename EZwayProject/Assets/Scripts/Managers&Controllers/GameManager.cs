@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int Points;
+    public int TitleRank;
     public List<LevelData> Levels;
     public PrefabsSO Prefabs;
     public DataSO Data;
@@ -38,8 +39,10 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         Levels = levelsParser.GetLevelsFromSheets();
+        SyncProgression();
         Levels[0].IsUnlocked = true;
-        SyncLevelProgression();
+        Levels[0].DidOffer = true;
+        UIManager.Instance.UpdateLevelIcon();
     }
 
     public void UnlockNextLevel(LevelData currentLevel)
@@ -68,11 +71,14 @@ public class GameManager : MonoBehaviour
         Points += pointsToAdd;
     }
 
-    private void SyncLevelProgression()
+    private void SyncProgression()
     {
+        SaveLoad data = SaveLoad.Instance;
+        data.Load();
+        List<LevelProgression> levelsProgression = data.LevelsProgression;
 
-        SaveLoad.Instance.Load();
-        List<LevelProgression> levelsProgression = SaveLoad.Instance.LevelsProgression;
+        Points = data.SavedPoints;
+        TitleRank = data.SavedTitleRank;
 
         //adjust number of levels from loaded data
         if (levelsProgression.Count < Levels.Count)
@@ -102,7 +108,9 @@ public class GameManager : MonoBehaviour
                 levelsProgression[i] = tmpLvlProg;
             }
 
+            //sync level data
             Levels[i].CompletedQuestionsCount = levelsProgression[i].QuestionsCompleted;
+            Levels[i].DidOffer = levelsProgression[i].didOffer;
         }
 
         //unlock levels
@@ -113,6 +121,14 @@ public class GameManager : MonoBehaviour
                 Levels[i + 1].IsUnlocked = true;
             }
         }
+        data.Save();
+    }
+
+    public void IncreaseTitleRank()
+    {
+        TitleRank++;
+        UIManager.Instance.UpdateLevelIcon();
+        SaveLoad.Instance.SavedTitleRank = TitleRank;
     }
 
     private void CheckConnection()

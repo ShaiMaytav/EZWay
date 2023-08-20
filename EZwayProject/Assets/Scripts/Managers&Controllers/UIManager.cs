@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,13 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LevelSelectionUI levelSelectionUI;
     [SerializeField] private TutorialUI tutorialUI;
     [SerializeField] private GameplayUI gameplayUI;
-    [SerializeField] private GameObject NoConnectionUI;
+    [SerializeField] private GameObject noConnectionUI;
     [SerializeField] private GameObject optionsWindowsUI;
+    [SerializeField] private Image background;
 
     private GameManager _gameManager;
     private static UIManager _instance;
     public static UIManager Instance { get { return _instance; } }
-
 
     private void Awake()
     {
@@ -62,7 +64,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            NoConnectionUI.SetActive(true);
+            noConnectionUI.SetActive(true);
         }
     }
     #endregion
@@ -92,10 +94,13 @@ public class UIManager : MonoBehaviour
         levelSelectionUI.gameObject.SetActive(true);
     }
 
-    public void LevelComplete(bool isLastLevel)
+    public void LevelComplete(bool isLastLevel, bool isFirstTime)
     {
         gameplayUI.LevelCompleteWindow.gameObject.SetActive(true);
         gameplayUI.NextLevelButton.SetActive(!isLastLevel);
+
+        gameplayUI.LevelCompleteWindow.PointsIcon.SetActive(isFirstTime);
+        gameplayUI.LevelCompleteWindow.PointsTxt.gameObject.SetActive(isFirstTime);
     }
 
     public void QuestionComplete()
@@ -122,13 +127,50 @@ public class UIManager : MonoBehaviour
 
     public void UpdateQuestionsTrack(string _text)
     {
-       gameplayUI.QuestTrackTxt.text = _text;
+        gameplayUI.QuestTrackTxt.text = _text;
     }
 
     public void UpdateLevelCompletionWindow(int reward)
     {
         gameplayUI.LevelCompleteWindow.EncourageTxt.text = _gameManager.Data.GetRandomEncouragement();
         gameplayUI.LevelCompleteWindow.PointsTxt.text = reward.ToString();
+    }
+
+    public void EnableNoPointsMenu()
+    {
+        gameplayUI.NotEnoughPointsWindow.SetActive(true);
+    }
+
+    public void EnableOfferMenu()
+    {
+        gameplayUI.OfferWindow.SetActive(true);
+    }
+
+    public void UpdateLevelIcon()
+    {
+        gameplayUI.TitleImage.sprite = _gameManager.Data.GetTitleIcon(_gameManager.TitleRank);
+    }
+
+    public void ChangeUITheme(UITheme theme)
+    {
+        //change background color
+        ChangeBackgroundColors(theme);
+
+        //change fonts color
+        foreach (var text in gameplayUI.AllGemaplayTexts)
+        {
+            text.color = theme.FontColor;
+        }
+        
+        gameplayUI.BurgerImage.sprite = theme.BurgerImage;
+        gameplayUI.PointsBackgroundImage.sprite = theme.PointsBackgroundImage;
+    }
+
+    public void ChangeBackgroundColors(UITheme theme)
+    {
+        background.material.SetColor("_TopColor", theme.TopColor);
+        background.material.SetColor("_BottomColor", theme.BottomColor);
+        background.material.SetFloat("_GradientSpread", theme.GradiantSpread);
     }
 
     #endregion
