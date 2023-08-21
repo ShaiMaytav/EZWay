@@ -15,8 +15,6 @@ public class LiveGameController : MonoBehaviour
 
     [SerializeField] private RectTransform canvas;
     [SerializeField] private float answerCenterOffset = 150;
-    [SerializeField] private float answerSlotGap = 185;
-    [SerializeField] private float asnwerSlotSpacingLayout = 85;
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
@@ -278,16 +276,13 @@ public class LiveGameController : MonoBehaviour
     {
         float offset = answerCenterOffset * (CurrentQuestion.Answer.Length - 1);
         Vector3 newPos = AnswerSlotsLayout.position;
-        newPos.x = Screen.width / 2 + offset;
+        newPos.x = AnswerSlotsLayout.transform.parent.position.x + offset;
 
 
         AnswerSlotsLayout.position = newPos;
 
 
         AnswerSlotsLayout.anchoredPosition = new Vector3(AnswerSlotsLayout.anchoredPosition.x / 100, AnswerSlotsLayout.anchoredPosition.y);
-
-
-
 
 
     }

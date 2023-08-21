@@ -131,10 +131,10 @@ TextureImporter:
       name: UI_Atlas_0
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 851
-        width: 150
-        height: 151
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: UI_Atlas_1
       rect:
         serializedVersion: 2
-        x: 214
-        y: 852
-        width: 150
-        height: 150
+        x: 213
+        y: 851
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: UI_Atlas_2
       rect:
         serializedVersion: 2
-        x: 379
+        x: 378
         y: 851
         width: 152
-        height: 151
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: UI_Atlas_3
       rect:
         serializedVersion: 2
-        x: 544
-        y: 850
-        width: 151
-        height: 156
+        x: 543
+        y: 851
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,7 +218,7 @@ TextureImporter:
         x: 708
         y: 851
         width: 152
-        height: 151
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: UI_Atlas_5
       rect:
         serializedVersion: 2
-        x: 874
+        x: 873
         y: 851
         width: 152
-        height: 151
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: UI_Atlas_6
       rect:
         serializedVersion: 2
-        x: 1039
+        x: 1038
         y: 851
-        width: 151
-        height: 151
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: UI_Atlas_7
       rect:
         serializedVersion: 2
-        x: 1204
+        x: 1203
         y: 851
-        width: 151
-        height: 151
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: UI_Atlas_8
       rect:
         serializedVersion: 2
-        x: 1369
+        x: 1368
         y: 851
-        width: 151
-        height: 151
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,10 +341,10 @@ TextureImporter:
       name: UI_Atlas_10
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 668
-        width: 151
-        height: 154
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,10 +362,10 @@ TextureImporter:
       name: UI_Atlas_11
       rect:
         serializedVersion: 2
-        x: 214
+        x: 213
         y: 668
-        width: 151
-        height: 154
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,9 +383,9 @@ TextureImporter:
       name: UI_Atlas_12
       rect:
         serializedVersion: 2
-        x: 379
+        x: 378
         y: 668
-        width: 151
+        width: 152
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -404,10 +404,10 @@ TextureImporter:
       name: UI_Atlas_13
       rect:
         serializedVersion: 2
-        x: 544
-        y: 669
-        width: 151
-        height: 150
+        x: 543
+        y: 668
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,13 +425,13 @@ TextureImporter:
       name: UI_Atlas_14
       rect:
         serializedVersion: 2
-        x: 709
-        y: 666
-        width: 151
-        height: 154
+        x: 708
+        y: 668
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 4, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -446,9 +446,9 @@ TextureImporter:
       name: UI_Atlas_15
       rect:
         serializedVersion: 2
-        x: 874
+        x: 873
         y: 668
-        width: 151
+        width: 152
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -511,7 +511,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1369
         y: 668
-        width: 151
+        width: 152
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -530,10 +530,10 @@ TextureImporter:
       name: UI_Atlas_19
       rect:
         serializedVersion: 2
-        x: 48
+        x: 49
         y: 486
-        width: 156
-        height: 152
+        width: 151
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,7 +554,7 @@ TextureImporter:
         x: 214
         y: 486
         width: 151
-        height: 152
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -574,8 +574,8 @@ TextureImporter:
         serializedVersion: 2
         x: 378
         y: 486
-        width: 156
-        height: 156
+        width: 151
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,7 +596,7 @@ TextureImporter:
         x: 544
         y: 486
         width: 151
-        height: 152
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -614,10 +614,10 @@ TextureImporter:
       name: UI_Atlas_23
       rect:
         serializedVersion: 2
-        x: 709
+        x: 708
         y: 486
         width: 151
-        height: 156
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -658,7 +658,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1039
         y: 486
-        width: 154
+        width: 151
         height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -677,9 +677,9 @@ TextureImporter:
       name: UI_Atlas_26
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1204
         y: 486
-        width: 155
+        width: 151
         height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -722,7 +722,7 @@ TextureImporter:
         x: 1534
         y: 486
         width: 151
-        height: 158
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1124,7 +1124,7 @@ TextureImporter:
         height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1144,7 +1144,7 @@ TextureImporter:
         width: 152
         height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
