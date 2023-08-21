@@ -18,6 +18,8 @@ public class LiveGameController : MonoBehaviour
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
+    private UIManager _uiManager;
+    private AudioManager _audioManager;
     private UITheme _currentTheme;
 
 
@@ -42,6 +44,8 @@ public class LiveGameController : MonoBehaviour
     private void Start()
     {
         _gameManager = GameManager.Instance;
+        _uiManager = UIManager.Instance;
+        _audioManager = AudioManager._instance;
         OnPoolLetterPicked.AddListener(AnswerCheck);
     }
 
@@ -59,7 +63,7 @@ public class LiveGameController : MonoBehaviour
 
         if (!CurrentLevel.DidOffer)
         {
-            UIManager.Instance.EnableOfferMenu();
+            _uiManager.EnableOfferMenu();
             CurrentLevel.DidOffer = true;
             SaveLoad data = SaveLoad.Instance;
             LevelProgression tmpLvlProg = data.LevelsProgression[CurrentLevel.LevelNum - 1];
@@ -94,7 +98,7 @@ public class LiveGameController : MonoBehaviour
 
     private void PoolToAnswer(LetterSlot letterSlot)
     {
-        AudioManager._instance.PlaySFX(Sounds.InsertLetter);
+        _audioManager.PlaySFX(Sounds.InsertLetter);
 
         LetterSlot _tmpSlot = null;
 
@@ -120,7 +124,7 @@ public class LiveGameController : MonoBehaviour
 
     private void AnswerToPool(LetterSlot letterSlot)
     {
-        AudioManager._instance.PlaySFX(Sounds.ExtractLetter);
+        _audioManager.PlaySFX(Sounds.ExtractLetter);
 
         LetterSlot _tmpSlot = LetterPool.EmptySlots[Random.Range(0, LetterPool.EmptySlots.Count)];
 
@@ -153,7 +157,7 @@ public class LiveGameController : MonoBehaviour
 
             if (_currentQuestionIndex < CurrentLevel.Questions.Count - 1)
             {
-                AudioManager._instance.PlaySFX(Sounds.QuestionComplete);
+                _audioManager.PlaySFX(Sounds.QuestionComplete);
 
                 _currentQuestionIndex++;
                 GenerateQuestion();
@@ -179,15 +183,15 @@ public class LiveGameController : MonoBehaviour
                     _gameManager.IncreaseTitleRank();
                 }
 
-                UIManager.Instance.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count, !CurrentLevel.IsCompleted);
-                UIManager.Instance.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward);
-                GameManager.Instance.UnlockNextLevel(CurrentLevel);
+                _uiManager.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count, !CurrentLevel.IsCompleted);
+                _uiManager.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward);
+                _gameManager.UnlockNextLevel(CurrentLevel);
             }
 
             if (!CurrentLevel.IsCompleted)
             {
-                GameManager.Instance.IncreasePoints(_gameManager.Data.QuestionReward);
-                UIManager.Instance.UpdatePointsText();
+                _gameManager.IncreasePoints(_gameManager.Data.QuestionReward);
+                _uiManager.UpdatePointsText();
 
                 CurrentLevel.CompletedQuestionsCount++;
 
@@ -222,17 +226,17 @@ public class LiveGameController : MonoBehaviour
 
     public void NextLevel()
     {
-        AudioManager._instance.PlaySFX(Sounds.UIClick);
+        _audioManager.PlaySFX(Sounds.UIClick);
 
         StartLevel(CurrentLevel.LevelNum); //didnt add 1 since levelnum is larger than its index by 1
-        UIManager.Instance.NextLevel();
+        _uiManager.NextLevel();
     }
 
     public void EndLevel()
     {
-        AudioManager._instance.PlaySFX(Sounds.UIClick);
+        _audioManager.PlaySFX(Sounds.UIClick);
 
-        UIManager.Instance.GameToLevelSelection();
+        _uiManager.GameToLevelSelection();
     }
 
     //displays current question and changes the letter pool 
@@ -241,9 +245,10 @@ public class LiveGameController : MonoBehaviour
         ResetPool();
         CurrentQuestion = CurrentLevel.Questions[_currentQuestionIndex];
         AdjustAnswerSlots();
-        UIManager.Instance.UpdateQuestionText(CurrentQuestion.Example, CurrentQuestion.Condition, CurrentQuestion.Question);
-        UIManager.Instance.UpdateQuestionsTrack((_currentQuestionIndex + 1) + "/" + CurrentLevel.Questions.Count);
-        UIManager.Instance.UpdatePointsText();
+        _uiManager.UpdateHintSprite();
+        _uiManager.UpdateQuestionText(CurrentQuestion.Example, CurrentQuestion.Condition, CurrentQuestion.Question);
+        _uiManager.UpdateQuestionsTrack((_currentQuestionIndex + 1) + "/" + CurrentLevel.Questions.Count);
+        _uiManager.UpdatePointsText();
         LetterPool.SetLetters();
     }
 
@@ -291,10 +296,10 @@ public class LiveGameController : MonoBehaviour
     {
         if (GameManager.Instance.CanUseHint && canPlay)
         {
-            AudioManager._instance.PlaySFX(Sounds.UIClick);
+            _audioManager.PlaySFX(Sounds.UIClick);
 
-            GameManager.Instance.BuyHint();
-            UIManager.Instance.UpdatePointsText();
+            _gameManager.BuyHint();
+            _uiManager.UpdatePointsText();
             LetterSlot _resSlot = null; //the slot containing the letter we need  
             LetterSlot _chosenSlot = null; //the answer slot chosen to be filled
             string _answerLetter = null; // need this to find the right resSlot
@@ -371,7 +376,7 @@ public class LiveGameController : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.EnableNoPointsMenu();
+            _uiManager.EnableNoPointsMenu();
         }
     }
 
@@ -382,7 +387,7 @@ public class LiveGameController : MonoBehaviour
         
         _currentTheme = _gameManager.Data.Themes[themeIndex];
 
-        UIManager.Instance.ChangeUITheme(_currentTheme);
+        _uiManager.ChangeUITheme(_currentTheme);
 
         //change letterpool slots and letter colors
         foreach (var slot in LetterPool.AllSlots)

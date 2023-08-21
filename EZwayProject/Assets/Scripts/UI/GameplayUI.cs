@@ -19,6 +19,6 @@ public class GameplayUI : BaseUIElement
     public TMP_Text QuestQuestionTxt;
     public TMP_Text PointsTxt;
     public TMP_Text QuestTrackTxt;
-
+    public HintButtonUI HintButton;
     public List<TMP_Text> AllGemaplayTexts;
 }
