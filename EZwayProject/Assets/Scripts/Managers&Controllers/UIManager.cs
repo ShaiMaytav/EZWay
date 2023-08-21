@@ -188,6 +188,11 @@ public class UIManager : MonoBehaviour
         background.material.SetFloat("_GradientSpread", theme.GradiantSpread);
     }
 
+    public void UpdateHintSprite()
+    {
+        gameplayUI.HintButton.SetStatusSprite();
+    }
+
     #endregion
 
     #region Tutorial Methods
