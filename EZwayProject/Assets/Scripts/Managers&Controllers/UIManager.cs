@@ -109,6 +109,20 @@ public class UIManager : MonoBehaviour
 
         gameplayUI.LevelCompleteWindow.PointsIcon.SetActive(isFirstTime);
         gameplayUI.LevelCompleteWindow.PointsTxt.gameObject.SetActive(isFirstTime);
+
+
+        //sets texts position
+        Vector2 newTextPos = gameplayUI.LevelCompleteWindow.Texts.anchoredPosition;
+        if (isFirstTime)
+        {
+            newTextPos.y = gameplayUI.LevelCompleteWindow.HighPosY;
+        }
+        else
+        {
+            newTextPos.y = gameplayUI.LevelCompleteWindow.LowPosY;
+        }
+        gameplayUI.LevelCompleteWindow.Texts.anchoredPosition = newTextPos;
+
     }
 
     public void QuestionComplete()
