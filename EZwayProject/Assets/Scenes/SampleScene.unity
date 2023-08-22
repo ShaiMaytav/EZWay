@@ -2449,7 +2449,6 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2558,29 +2557,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &330585548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee01e66702087b4798e633ca34c7956, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxUpdateRate: Infinity
-  preview: 0
-  blurAlgorithmSelection: 0
-  blurConfig: {fileID: 11400000, guid: aa525d393fcfb264cb81b3b07f85c049, type: 2}
-  downsample: 0
-  blurRegion:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!1 &369288051
 GameObject:
   m_ObjectHideFlags: 0
@@ -8285,7 +8261,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 4.0268593, y: 0, z: 4.698044, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8316,7 +8292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.5, y: 9.1}
+  m_AnchoredPosition: {x: 49.7, y: 4.4}
   m_SizeDelta: {x: 99.016, y: 99.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1158078790
@@ -22182,7 +22158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100.026, y: -121.775024}
+  m_AnchoredPosition: {x: 100.02612, y: -121.7749}
   m_SizeDelta: {x: 127.454, y: 123.363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698605567
@@ -24234,7 +24210,6 @@ GameObject:
   - component: {fileID: 2109462123}
   - component: {fileID: 2109462122}
   - component: {fileID: 2109462121}
-  - component: {fileID: 2109462120}
   m_Layer: 0
   m_Name: UI Camera
   m_TagString: Untagged
@@ -24242,29 +24217,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &2109462120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109462119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee01e66702087b4798e633ca34c7956, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxUpdateRate: Infinity
-  preview: 0
-  blurAlgorithmSelection: 0
-  blurConfig: {fileID: 11400000, guid: 69c0b043f5fbad145968b75eb6b8d463, type: 2}
-  downsample: 0
-  blurRegion:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &2109462121
 MonoBehaviour:
   m_ObjectHideFlags: 0
