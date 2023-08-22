@@ -75,7 +75,7 @@ public class TestShare : MonoBehaviour
 
     public void ShareText()
     {
-        SunShineNativeShare.instance.ShareText("Share Message", "Share By sunshine");
+        SunShineNativeShare.instance.ShareText("https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
     }
 
 
