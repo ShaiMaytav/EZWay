@@ -82,6 +82,23 @@ public class AudioManager : MonoBehaviour
         sfxSoundsDict[(Sounds)soundIndex].Play();
     }
 
+    public float GetGroupVolume(string groupName)
+    {
+        float resVol = 0;
+        switch (groupName)
+        {
+            case "SFXVolume":
+                mainMixer.GetFloat(groupName, out resVol);
+                break;
+            case "MasterVolume":
+                mainMixer.GetFloat(groupName, out resVol);
+                break;
+            default:
+                break;
+        }
+        return resVol;
+    }
+
     public void ToggleGroupVolume(string groupVolName)
     {
         float curVolume;
