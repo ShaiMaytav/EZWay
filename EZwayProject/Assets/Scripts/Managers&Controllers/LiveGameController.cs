@@ -196,6 +196,7 @@ public class LiveGameController : MonoBehaviour
             }
 
             SaveLoad.Instance.SavedPoints = _gameManager.Points;
+            SaveLoad.Instance.Save();
         }
         else
         {
