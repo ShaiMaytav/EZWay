@@ -2264,7 +2264,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 22447566}
         m_TargetAssemblyTypeName: TestShare, Assembly-CSharp-firstpass
-        m_MethodName: takeScreenShotAndShare
+        m_MethodName: ShareText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

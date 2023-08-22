@@ -199,6 +199,7 @@ public class LiveGameController : MonoBehaviour
         }
         else
         {
+            AudioManager._instance.PlaySFX(Sounds.Negative);
             _uiManager.WrongAnswer();
         }
     }
