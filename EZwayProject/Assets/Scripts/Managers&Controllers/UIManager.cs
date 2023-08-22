@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
     {
         mainMenuUI.gameObject.SetActive(false);
         tutorialUI.gameObject.SetActive(true);
+        tutorialUI.caller = mainMenuUI.gameObject;
     }
 
     public void Startup(bool isConnected)
@@ -85,6 +86,14 @@ public class UIManager : MonoBehaviour
         levelSelectionUI.gameObject.SetActive(false);
         mainMenuUI.gameObject.SetActive(true);
     }
+
+    public void LevelsToTutorial()
+    {
+        levelSelectionUI.gameObject.SetActive(false);
+        tutorialUI.gameObject.SetActive (true);
+        tutorialUI.caller = levelSelectionUI.gameObject;
+    }
+
     #endregion
 
     #region GameplayUI Methods
@@ -125,10 +134,14 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void WrongAnswer()
+    {
+        gameplayUI.WrongAnswerWindow.SetActive(true);
+    }
+
     public void QuestionComplete()
     {
         gameplayUI.QuestionCompleteWindow.SetActive(true);
-        TranslucentImage.SetActive(true);
     }
 
     public void NextLevel()
@@ -153,8 +166,9 @@ public class UIManager : MonoBehaviour
         gameplayUI.QuestTrackTxt.text = _text;
     }
 
-    public void UpdateLevelCompletionWindow(int reward)
+    public void UpdateLevelCompletionWindow(int reward, int levelNum)
     {
+        gameplayUI.LevelCompleteWindow.LevelText.text = _gameManager.Data.LevelCompletionText[levelNum];
         gameplayUI.LevelCompleteWindow.EncourageTxt.text = _gameManager.Data.GetRandomEncouragement();
         gameplayUI.LevelCompleteWindow.PointsTxt.text = reward.ToString();
     }
@@ -177,7 +191,14 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLevelIcon()
     {
+        //dynamic
         gameplayUI.TitleImage.sprite = _gameManager.Data.GetTitleIcon(_gameManager.TitleRank);
+    }
+
+    public void UpdateLevelIcon(int index)
+    {
+        //static
+        gameplayUI.TitleImage.sprite = _gameManager.Data.GetTitleIcon(index);
     }
 
     public void ChangeUITheme(UITheme theme)
@@ -247,7 +268,8 @@ public class UIManager : MonoBehaviour
 
         tutorialUI.gameObject.SetActive(false);
         tutorialUI.NextButton.gameObject.SetActive(true);
-        mainMenuUI.gameObject.SetActive(true);
+
+        tutorialUI.caller.SetActive(true);
     }
 
     #endregion

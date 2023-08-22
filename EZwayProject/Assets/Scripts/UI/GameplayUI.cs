@@ -10,6 +10,7 @@ public class GameplayUI : BaseUIElement
     public Image BurgerImage;
     public Image TitleImage;
     public GameObject QuestionCompleteWindow;
+    public GameObject WrongAnswerWindow;
     public GameObject NotEnoughPointsWindow;
     public GameObject OfferWindow;
     public LevelCompleteUI LevelCompleteWindow;

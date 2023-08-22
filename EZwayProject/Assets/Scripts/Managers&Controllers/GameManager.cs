@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PrefabsSO Prefabs;
     public DataSO Data;
     [SerializeField] private LevelsParser levelsParser;
+    [SerializeField] private int FrameRate = 60;
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = FrameRate;
         UIManager.Instance.ChangeBackgroundColors(GameManager.Instance.Data.MainTheme);
         CheckConnection();
     }
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
         SyncProgression();
         Levels[0].IsUnlocked = true;
         Levels[0].DidOffer = true;
-        UIManager.Instance.UpdateLevelIcon();
+        //UIManager.Instance.UpdateLevelIcon();
     }
 
     [ContextMenu("Update title")]

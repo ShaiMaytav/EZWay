@@ -23,7 +23,7 @@ public class LetterSlot : MonoBehaviour
     private void Start()
     {
         _gameController = LiveGameController.Instance;
-        _gameManager = GameManager.Instance;    
+        _gameManager = GameManager.Instance;
     }
 
     public void Pick()
@@ -44,9 +44,16 @@ public class LetterSlot : MonoBehaviour
         }
     }
 
-    public void SendLetterToSlot(LetterSlot slot)
+    public void SendLetterToSlot(LetterSlot slot, bool tween)
     {
-        CurrentLetter.ChangeSlot(slot);
+        if (tween)
+        {
+            CurrentLetter.ChangeSlotTween(slot);
+        }
+        else
+        {
+            CurrentLetter.ChangeSlot(slot);
+        }
         CurrentLetter = null;
     }
 

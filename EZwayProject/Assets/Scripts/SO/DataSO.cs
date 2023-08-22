@@ -9,9 +9,11 @@ public class DataSO : ScriptableObject
     public int QuestionReward;
     public int LevelReward;
     public List<string> Encouragements;
+    public List<string> LevelCompletionText;
     public UITheme MainTheme;
     public List<UITheme> Themes;
     public List<Sprite> TitleSprites;
+    public List<Sprite> LevelButtonSprites;
 
     public string GetRandomEncouragement()
     {

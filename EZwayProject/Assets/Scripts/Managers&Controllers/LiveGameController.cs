@@ -72,6 +72,8 @@ public class LiveGameController : MonoBehaviour
             data.Save();
         }
 
+        _uiManager.UpdateLevelIcon(CurrentLevel.LevelNum - 1);
+
         GenerateQuestion();
         ChangeTheme();
     }
@@ -90,7 +92,7 @@ public class LiveGameController : MonoBehaviour
             //check if letter is in answer slots and calls method accordingly
             if (AnswerSlots.Contains(letterSlot))
             {
-                AnswerToPool(letterSlot);
+                AnswerToPool(letterSlot, true);
             }
 
         }
@@ -118,13 +120,13 @@ public class LiveGameController : MonoBehaviour
             return;
         }
 
-        letterSlot.SendLetterToSlot(_tmpSlot);
+        letterSlot.SendLetterToSlot(_tmpSlot, true);
         OnPoolLetterPicked.Invoke();
     }
 
-    private void AnswerToPool(LetterSlot letterSlot)
+    private void AnswerToPool(LetterSlot letterSlot, bool tween)
     {
-        _audioManager.PlaySFX(Sounds.ExtractLetter);
+        if (tween) { _audioManager.PlaySFX(Sounds.ExtractLetter); };
 
         LetterSlot _tmpSlot = LetterPool.EmptySlots[Random.Range(0, LetterPool.EmptySlots.Count)];
 
@@ -133,7 +135,7 @@ public class LiveGameController : MonoBehaviour
             Debug.LogError("Letter pool is somehow full, fix the code dummy");
         }
 
-        letterSlot.SendLetterToSlot(_tmpSlot);
+        letterSlot.SendLetterToSlot(_tmpSlot, tween);
     }
 
     private void AnswerCheck()
@@ -171,11 +173,11 @@ public class LiveGameController : MonoBehaviour
                 if (!CurrentLevel.IsCompleted)
                 {
                     _gameManager.IncreasePoints(_gameManager.Data.LevelReward);
-                    _gameManager.IncreaseTitleRank();
+                    //_gameManager.IncreaseTitleRank();
                 }
 
                 _uiManager.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count, !CurrentLevel.IsCompleted);
-                _uiManager.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward);
+                _uiManager.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward, CurrentLevel.LevelNum - 1);
                 _gameManager.UnlockNextLevel(CurrentLevel);
             }
 
@@ -195,6 +197,10 @@ public class LiveGameController : MonoBehaviour
 
             SaveLoad.Instance.SavedPoints = _gameManager.Points;
         }
+        else
+        {
+            _uiManager.WrongAnswer();
+        }
     }
 
     private void ResetPool()
@@ -203,7 +209,7 @@ public class LiveGameController : MonoBehaviour
         {
             if (!slot.IsEmpty)
             {
-                AnswerToPool(slot);
+                AnswerToPool(slot, false);
             }
         }
     }
@@ -322,7 +328,7 @@ public class LiveGameController : MonoBehaviour
 
                 if (_chosenSlot.CurrentLetter.LetterValue != _answerLetter)
                 {
-                    AnswerToPool(_chosenSlot);
+                    AnswerToPool(_chosenSlot, true);
                     break;
                 }
                 _uncheckedAnswerSlotsIndexes.RemoveAt(_index);//remove the index we used 
@@ -367,7 +373,7 @@ public class LiveGameController : MonoBehaviour
             }
             #endregion
 
-            _resSlot.SendLetterToSlot(_chosenSlot);
+            _resSlot.SendLetterToSlot(_chosenSlot, true);
             OnPoolLetterPicked.Invoke();
         }
         else

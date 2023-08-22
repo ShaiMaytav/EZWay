@@ -10,6 +10,7 @@ public class LetterObject : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TMP_Text letterTxt;
     [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private RectTransform rectTransform;
 
     public void UpdateLetter(string _letter)
     {
@@ -17,7 +18,7 @@ public class LetterObject : MonoBehaviour
         letterTxt.text = LetterValue;
     }
 
-    public void ChangeSlot(LetterSlot slot)
+    public void ChangeSlotTween(LetterSlot slot)
     {
         //slot.CurrentLetter = this;
         //transform.position = slot.transform.position;
@@ -29,6 +30,14 @@ public class LetterObject : MonoBehaviour
         slot.CurrentLetter = this;
         Vector3 targetPosition = slot.transform.position;
         LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad).setOnComplete(() => OnEndLetterMove(slot));
+    }
+
+    public void ChangeSlot(LetterSlot slot)
+    {
+        slot.CurrentLetter = this;
+        Vector3 targetPosition = slot.transform.position;
+        transform.SetParent(slot.transform);
+        rectTransform.position = targetPosition;
     }
 
     private void OnEndLetterMove(LetterSlot slot)

@@ -6,11 +6,13 @@ using TMPro;
 
 public class LevelButton : MonoBehaviour
 {
+    [SerializeField] private Image background;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text completedQuestionsText;
     [SerializeField] private Image lockedStatusIcon;
     [SerializeField] private Sprite lockedIcon;
     [SerializeField] private Sprite unlockedIcon;
+    [SerializeField] private Image titleIcon;
     [SerializeField] private Button button;
 
     private LevelData _level;
@@ -19,6 +21,8 @@ public class LevelButton : MonoBehaviour
     {
         _level = level;
         levelText.text = "\u05E9\u05DC\u05D1 " + Helper.ReverseString(_level.LevelNum.ToString());
+        background.sprite = GameManager.Instance.Data.LevelButtonSprites[level.LevelNum - 1];
+        titleIcon.sprite = GameManager.Instance.Data.TitleSprites[level.LevelNum - 1];
         completedQuestionsText.text = level.CompletedQuestionsCount + "\\" + level.Questions.Count;
         lockedStatusIcon.overrideSprite = level.IsUnlocked ? unlockedIcon : lockedIcon;
         button.onClick.AddListener(StartLevel);

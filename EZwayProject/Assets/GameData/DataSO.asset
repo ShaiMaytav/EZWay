@@ -12,14 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fde2a4411fbebb41b2043de25ced8bb, type: 3}
   m_Name: DataSO
   m_EditorClassIdentifier: 
-  HintCost: 5
-  QuestionReward: 10
-  LevelReward: 20
+  HintCost: 10
+  QuestionReward: 5
+  LevelReward: 40
   Encouragements:
   - "\u05D0\u05EA\u05D4 \u05EA\u05D5\u05EA\u05D7!"
   - "\u05DE\u05D3\u05D4\u05D9\u05DD!"
   - "\u05DB\u05DC \u05D4\u05DB\u05D1\u05D5\u05D3!"
   - "\u05D0\u05E9 \u05E2\u05DC\u05D9\u05D9\u05DA"
+  LevelCompletionText:
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
+  - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05D4\u05E9\u05DC\u05D1 \u05D4..."
   MainTheme:
     TopColor: {r: 0.9490197, g: 0.95294124, b: 0.95294124, a: 0}
     BottomColor: {r: 0.79215693, g: 0.79215693, b: 0.79215693, a: 0}
@@ -142,3 +153,14 @@ MonoBehaviour:
   - {fileID: 827048284, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: 1422081381, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: 654733395, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  LevelButtonSprites:
+  - {fileID: 1255175035, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1773443878, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 589833564, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -246283983, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1560424364, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 357975440, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1506177224, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1799210404, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 1376901681, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1310971244, guid: ee60abdb14022d241b96984f640fb404, type: 3}
