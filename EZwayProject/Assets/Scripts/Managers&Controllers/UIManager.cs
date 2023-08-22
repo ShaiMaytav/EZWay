@@ -127,8 +127,8 @@ public class UIManager : MonoBehaviour
 
     public void QuestionComplete()
     {
-
         gameplayUI.QuestionCompleteWindow.SetActive(true);
+        TranslucentImage.SetActive(true);
     }
 
     public void NextLevel()

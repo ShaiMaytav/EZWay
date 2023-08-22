@@ -18,7 +18,7 @@ public class LevelButton : MonoBehaviour
     public void UpdateInfo(LevelData level)
     {
         _level = level;
-        levelText.text = "\u05E9\u05DC\u05D1 " + _level.LevelNum;
+        levelText.text = "\u05E9\u05DC\u05D1 " + Helper.ReverseString(_level.LevelNum.ToString());
         completedQuestionsText.text = level.CompletedQuestionsCount + "\\" + level.Questions.Count;
         lockedStatusIcon.overrideSprite = level.IsUnlocked ? unlockedIcon : lockedIcon;
         button.onClick.AddListener(StartLevel);

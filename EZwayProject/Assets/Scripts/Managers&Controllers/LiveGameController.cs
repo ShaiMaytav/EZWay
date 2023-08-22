@@ -160,17 +160,8 @@ public class LiveGameController : MonoBehaviour
                 _audioManager.PlaySFX(Sounds.QuestionComplete);
 
                 _currentQuestionIndex++;
-                GenerateQuestion();
-
-                //Update answers slots color ////////////TBI////////////////
-                foreach (var slot in AnswerSlots)
-                {
-                    slot.ChangeColors(_currentTheme);
-                }
-
-
-                //UIManager.Instance.QuestionComplete(); //opens window between questions
-
+                //GenerateQuestion();
+                UIManager.Instance.QuestionComplete(); //opens window between questions
 
             }
             else
@@ -220,8 +211,11 @@ public class LiveGameController : MonoBehaviour
     public void NextQueestion()
     {
         GenerateQuestion();
+        foreach (var slot in AnswerSlots)
+        {
+            slot.ChangeColors(_currentTheme);
+        }
 
-       
     }
 
     public void NextLevel()
@@ -250,6 +244,8 @@ public class LiveGameController : MonoBehaviour
         _uiManager.UpdateQuestionsTrack((_currentQuestionIndex + 1) + "/" + CurrentLevel.Questions.Count);
         _uiManager.UpdatePointsText();
         LetterPool.SetLetters();
+
+       
     }
 
     private void AdjustAnswerSlots()
