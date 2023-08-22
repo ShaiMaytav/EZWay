@@ -78,6 +78,9 @@ public class LetterPool : MonoBehaviour
             tmpSlot = _slots[Random.Range(0, _slots.Count)];
             tmpSlot.SetLetter(letter.ToString());
             _slots.Remove(tmpSlot);
+
+
+            lettersList.Remove(letter);
         }
 
         //fills rest of pool with random letters

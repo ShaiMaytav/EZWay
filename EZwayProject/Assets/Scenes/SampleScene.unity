@@ -8891,7 +8891,7 @@ MonoBehaviour:
   - {fileID: 464102737}
   - {fileID: 402530977}
   - {fileID: 696440228}
-  maxLetterQuantity: 2
+  maxLetterQuantity: 1
 --- !u!1001 &1176401364
 PrefabInstance:
   m_ObjectHideFlags: 0
