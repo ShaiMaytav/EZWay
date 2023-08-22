@@ -68,17 +68,9 @@ public class AudioManager : MonoBehaviour
             sfxSoundsDict.Add((Sounds)i, sfxSources[i]);
         }
 
-        // -80 because of minimum decibles of unity audio mixsers
+        // -80 because of minimum decibles of unity audio mixers
         mainMixer.SetFloat("MasterVolume", mainVolume - 80);
         mainMixer.SetFloat("SFXVolume", sfxVolume - 80);
-    }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    PlaySFX(Sounds.UIClick);
-        //}
     }
 
     public void PlaySFX(Sounds soundType)
@@ -88,6 +80,23 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(int soundIndex)
     {
         sfxSoundsDict[(Sounds)soundIndex].Play();
+    }
+
+    public float GetGroupVolume(string groupName)
+    {
+        float resVol = 0;
+        switch (groupName)
+        {
+            case "SFXVolume":
+                mainMixer.GetFloat(groupName, out resVol);
+                break;
+            case "MasterVolume":
+                mainMixer.GetFloat(groupName, out resVol);
+                break;
+            default:
+                break;
+        }
+        return resVol;
     }
 
     public void ToggleGroupVolume(string groupVolName)

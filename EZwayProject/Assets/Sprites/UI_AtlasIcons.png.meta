@@ -346,8 +346,8 @@ TextureImporter:
         width: 422
         height: 428
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 36, y: 106, z: 34, w: 30}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -365,9 +365,9 @@ TextureImporter:
         x: 58
         y: 290
         width: 271
-        height: 325
+        height: 308
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -375,6 +375,27 @@ TextureImporter:
       bones: []
       spriteID: 93391540902111b4184b6baa06f75754
       internalID: 113428983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_AtlasIcons_12
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 544
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6275003a69acaff47b5e480463defcb6
+      internalID: 1681842166
       vertices: []
       indices: 
       edges: []

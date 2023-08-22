@@ -16,11 +16,10 @@ MonoBehaviour:
   QuestionReward: 10
   LevelReward: 20
   Encouragements:
-  - "\u05D0\u05D9\u05D6\u05D4 \u05D0\u05D3\u05D9\u05E8 \u05D0\u05EA\u05D4 \u05D5\u05D5\u05D0\u05D5"
-  - "\u05D0\u05E0\u05D9 \u05E4\u05D9\u05E4\u05D9"
-  - "\u05E2\u05E9\u05D9\u05EA \u05DC\u05D9 \u05D0\u05EA \u05D4\u05D9\u05D5\u05DD"
-  - "\u05DE\u05D9 \u05D9\u05E9\u05DE\u05E2 \u05D0\u05D9\u05D6\u05D4 \u05D2\u05D0\u05D5\u05DF"
-  - "\u05E9\u05DC\u05D0 \u05D9\u05E2\u05DC\u05D4 \u05DC\u05DA \u05DC\u05E8\u05D0\u05E9"
+  - "\u05D0\u05EA\u05D4 \u05EA\u05D5\u05EA\u05D7!"
+  - "\u05DE\u05D3\u05D4\u05D9\u05DD!"
+  - "\u05DB\u05DC \u05D4\u05DB\u05D1\u05D5\u05D3!"
+  - "\u05D0\u05E9 \u05E2\u05DC\u05D9\u05D9\u05DA"
   MainTheme:
     TopColor: {r: 0.032075405, g: 0.74009484, b: 1, a: 0}
     BottomColor: {r: 0.032075405, g: 0.34444892, b: 1, a: 0}
@@ -32,105 +31,114 @@ MonoBehaviour:
     GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
     LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
   Themes:
-  - TopColor: {r: 0.9433962, g: 0.21715912, b: 0.21715912, a: 1}
-    BottomColor: {r: 0.59607846, g: 0.12549019, b: 0.53299457, a: 1}
-    GradiantSpread: 3.2
+  - TopColor: {r: 0.9958848, g: 1, b: 1, a: 1}
+    BottomColor: {r: 0.79215693, g: 0.79215693, b: 0.79215693, a: 1}
+    GradiantSpread: 5
     ButtonsSprite: {fileID: -1026918177, guid: 28874c83fe02b454988b6863063a5849, type: 3}
-    SlotSprite: {fileID: -1376126647, guid: 28874c83fe02b454988b6863063a5849, type: 3}
-    PointsBackgroundImage: {fileID: 537681583, guid: 28874c83fe02b454988b6863063a5849,
+    SlotSprite: {fileID: -491509658, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -856186476, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: 598432988, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 0.16078432, g: 0.5921569, b: 0.82745105, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.45098042, g: 0.81568635, b: 0.94117653, a: 0}
+    BottomColor: {r: 0.2509804, g: 0.7725491, b: 0.8941177, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: -1026918177, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -954206309, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -1868593612, guid: 28874c83fe02b454988b6863063a5849,
       type: 3}
     BurgerImage: {fileID: -1871648334, guid: 28874c83fe02b454988b6863063a5849, type: 3}
     GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
-  - TopColor: {r: 0, g: 0, b: 0, a: 0}
-    BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    GradiantSpread: 0
-    ButtonsSprite: {fileID: 0}
-    SlotSprite: {fileID: 0}
-    PointsBackgroundImage: {fileID: 0}
-    BurgerImage: {fileID: 0}
-    GeneralFontColor: {r: 0, g: 0, b: 0, a: 0}
-    LettersFontColor: {r: 0, g: 0, b: 0, a: 0}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 1}
+  - TopColor: {r: 0.19215688, g: 0.6431373, b: 0.86274517, a: 1}
+    BottomColor: {r: 0.23137257, g: 0.5137255, b: 0.7725491, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: 1604289770, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -1376126647, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: 537681583, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: -597941474, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.4784314, g: 0.5176471, b: 0.7568628, a: 0}
+    BottomColor: {r: 0.3803922, g: 0.43137258, b: 0.7058824, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: 1740795387, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -320054957, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: 741702014, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: -1211613415, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.24313727, g: 0.75294125, b: 0.7372549, a: 0}
+    BottomColor: {r: 0.050980397, g: 0.7019608, b: 0.65882355, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: -1195800772, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -1620509733, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -1793876918, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: 1740325448, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.50980395, g: 0.7960785, b: 0.6392157, a: 0}
+    BottomColor: {r: 0.5058824, g: 0.7843138, b: 0.5176471, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: 1581946431, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -1965255368, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -280030819, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: -2037517900, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.9843138, g: 0.96470594, b: 0.62352943, a: 0}
+    BottomColor: {r: 0.9843138, g: 0.95294124, b: 0.47058827, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: 684545530, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -1052029415, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: 1815344068, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: 461799322, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 0.9843138, g: 0.6901961, b: 0.2509804, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.9725491, g: 0.8431373, b: 0.5764706, a: 0}
+    BottomColor: {r: 0.96470594, g: 0.80392164, b: 0.4784314, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: -1472430313, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: -1257633294, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -532810475, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: -274453481, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 0.9607844, g: 0.5019608, b: 0.1254902, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.96470594, g: 0.83921576, b: 0.8352942, a: 0}
+    BottomColor: {r: 0.9686275, g: 0.69803923, b: 0.6509804, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: -780754923, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: 1177588231, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -692230987, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: 23041942, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 0.95294124, g: 0.454902, b: 0.34509805, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
+  - TopColor: {r: 0.77647066, g: 0.15294118, b: 0.24705884, a: 0}
+    BottomColor: {r: 0.63529414, g: 0.1254902, b: 0.21176472, a: 0}
+    GradiantSpread: 5
+    ButtonsSprite: {fileID: 905185099, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    SlotSprite: {fileID: 2011167562, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    PointsBackgroundImage: {fileID: -1145878217, guid: 28874c83fe02b454988b6863063a5849,
+      type: 3}
+    BurgerImage: {fileID: -1434429693, guid: 28874c83fe02b454988b6863063a5849, type: 3}
+    GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
+    LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
   TitleSprites:
-  - {fileID: 232257655, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 617361508, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: -449951631, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 617361508, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: 1484795539, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: 1686968975, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: -1843220077, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 506094002, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 670052717, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 493101173, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 232257655, guid: ee60abdb14022d241b96984f640fb404, type: 3}
   - {fileID: 990948322, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 493101173, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1843220077, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 670052717, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 506094002, guid: ee60abdb14022d241b96984f640fb404, type: 3}

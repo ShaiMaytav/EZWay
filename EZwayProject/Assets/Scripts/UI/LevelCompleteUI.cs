@@ -5,7 +5,12 @@ using TMPro;
 
 public class LevelCompleteUI : BaseUIElement
 {
+    public TMP_Text VictoryText;
+    public TMP_Text EncourageTxt;
     public TMP_Text PointsTxt;
     public GameObject PointsIcon;
-    public TMP_Text EncourageTxt; 
+    public RectTransform Texts;
+
+    public float HighPosY;
+    public float LowPosY;
 }

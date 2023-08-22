@@ -6,7 +6,7 @@ public class LetterPool : MonoBehaviour
 {
     public List<LetterSlot> AllSlots;
 
-    [SerializeField] private int maxLetterQuantity = 2;
+    [SerializeField] private int maxLetterQuantity = 1;
 
     public bool IsEmpty
     {
