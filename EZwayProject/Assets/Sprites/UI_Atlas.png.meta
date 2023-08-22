@@ -320,10 +320,10 @@ TextureImporter:
       name: UI_Atlas_9
       rect:
         serializedVersion: 2
-        x: 1572
-        y: 651
-        width: 422
-        height: 357
+        x: 1569
+        y: 645
+        width: 425
+        height: 361
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1228,7 +1228,7 @@ TextureImporter:
         width: 150
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -132,13 +132,13 @@ MonoBehaviour:
     GeneralFontColor: {r: 1, g: 1, b: 1, a: 1}
     LettersFontColor: {r: 1, g: 1, b: 1, a: 0}
   TitleSprites:
-  - {fileID: -449951631, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 617361508, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 1484795539, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 1686968975, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 232257655, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 990948322, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 493101173, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: -1843220077, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 670052717, guid: ee60abdb14022d241b96984f640fb404, type: 3}
-  - {fileID: 506094002, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 238054163, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 1899534467, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -988643948, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -1198412609, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -43657818, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: -2051510565, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 975959163, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 827048284, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 1422081381, guid: ee60abdb14022d241b96984f640fb404, type: 3}
+  - {fileID: 654733395, guid: ee60abdb14022d241b96984f640fb404, type: 3}
