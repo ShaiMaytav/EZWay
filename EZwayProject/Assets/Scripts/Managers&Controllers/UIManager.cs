@@ -159,6 +159,7 @@ public class UIManager : MonoBehaviour
     public void UpdatePointsText()
     {
         gameplayUI.PointsTxt.text = _gameManager.Points.ToString();
+        gameplayUI.HintButton.SetStatusSprite();
     }
 
     public void UpdateQuestionsTrack(string _text)
