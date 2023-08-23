@@ -42,6 +42,7 @@ public class LetterObject : MonoBehaviour
 
     private void OnEndLetterMove(LetterSlot slot)
     {
+        rectTransform.position = slot.transform.position;
         transform.SetParent(slot.transform);
 
     }
