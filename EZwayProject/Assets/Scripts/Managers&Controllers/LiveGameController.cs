@@ -207,6 +207,8 @@ public class LiveGameController : MonoBehaviour
 
     private void ResetPool()
     {
+        LeanTween.cancelAll();
+
         foreach (var slot in AnswerSlots)
         {
             if (!slot.IsEmpty)
