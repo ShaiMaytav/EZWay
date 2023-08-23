@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameplayUI gameplayUI;
     [SerializeField] private GameObject noConnectionUI;
     [SerializeField] private GameObject optionsWindowsUI;
+    [SerializeField] private GameObject confettiPS;
     [SerializeField] private Image background;
 
     [Header("Translucent data")]
@@ -229,6 +230,11 @@ public class UIManager : MonoBehaviour
     public void UpdateHintSprite()
     {
         gameplayUI.HintButton.SetStatusSprite();
+    }
+
+    public void SetConfettiActive(bool isActive)
+    {
+        confettiPS.SetActive(isActive);
     }
 
     #endregion
