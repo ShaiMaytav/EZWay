@@ -14,4 +14,9 @@ public class LevelCompleteUI : BaseUIElement
 
     public float HighPosY;
     public float LowPosY;
+
+    private void OnDisable()
+    {
+        //UIManager.Instance.SetConfettiActive(false);
+    }
 }
