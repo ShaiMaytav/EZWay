@@ -179,7 +179,7 @@ public class LiveGameController : MonoBehaviour
 
                 _uiManager.LevelComplete(CurrentLevel.LevelNum == GameManager.Instance.Levels.Count, !CurrentLevel.IsCompleted);
                 _uiManager.UpdateLevelCompletionWindow(_gameManager.Data.LevelReward, CurrentLevel.LevelNum - 1);
-                //_uiManager.SetConfettiActive(true);
+                _uiManager.SetConfettiActive(true);
                 _gameManager.UnlockNextLevel(CurrentLevel);
             }
 

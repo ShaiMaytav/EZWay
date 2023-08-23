@@ -17,6 +17,6 @@ public class LevelCompleteUI : BaseUIElement
 
     private void OnDisable()
     {
-        //UIManager.Instance.SetConfettiActive(false);
+        UIManager.Instance.SetConfettiActive(false);
     }
 }
