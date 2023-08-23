@@ -101,7 +101,6 @@ public class LiveGameController : MonoBehaviour
 
     private void PoolToAnswer(LetterSlot letterSlot)
     {
-        _audioManager.PlaySFX(Sounds.InsertLetter);
 
         LetterSlot _tmpSlot = null;
 
@@ -121,6 +120,7 @@ public class LiveGameController : MonoBehaviour
             return;
         }
 
+        _audioManager.PlaySFX(Sounds.InsertLetter);
         letterSlot.SendLetterToSlot(_tmpSlot, true);
         OnPoolLetterPicked.Invoke();
     }

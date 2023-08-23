@@ -9,6 +9,7 @@ public class DataSO : ScriptableObject
     public int QuestionReward;
     public int LevelReward;
     public List<string> Encouragements;
+    public List<string> QuestionCompletionText;
     public List<string> LevelCompletionText;
     public UITheme MainTheme;
     public List<UITheme> Themes;
@@ -18,6 +19,11 @@ public class DataSO : ScriptableObject
     public string GetRandomEncouragement()
     {
         return Encouragements[Random.Range(0, Encouragements.Count)];
+    }
+
+    public string GetRandomQuestText()
+    {
+        return QuestionCompletionText[Random.Range(0, QuestionCompletionText.Count)];
     }
 
     public Sprite GetTitleIcon(int rank)

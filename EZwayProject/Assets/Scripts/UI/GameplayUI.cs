@@ -9,7 +9,7 @@ public class GameplayUI : BaseUIElement
     public Image PointsBackgroundImage;
     public Image BurgerImage;
     public Image TitleImage;
-    public GameObject QuestionCompleteWindow;
+    public QuestionCompleteWindow QuestionCompleteWindow;
     public GameObject WrongAnswerWindow;
     public GameObject NotEnoughPointsWindow;
     public GameObject OfferWindow;

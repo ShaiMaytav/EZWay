@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
         AudioManager._instance.PlaySFX(Sounds.UIClick);
 
         gameplayUI.LevelCompleteWindow.gameObject.SetActive(false);
-        gameplayUI.QuestionCompleteWindow.SetActive(false);
+        gameplayUI.QuestionCompleteWindow.gameObject.SetActive(false);
         gameplayUI.gameObject.SetActive(false);
 
         levelSelectionUI.gameObject.SetActive(true);
@@ -141,7 +141,9 @@ public class UIManager : MonoBehaviour
 
     public void QuestionComplete()
     {
-        gameplayUI.QuestionCompleteWindow.SetActive(true);
+        gameplayUI.QuestionCompleteWindow.gameObject.SetActive(true);
+        gameplayUI.QuestionCompleteWindow.CorrectText.text = _gameManager.Data.GetRandomQuestText();
+        TranslucentImage.SetActive(true);  
     }
 
     public void NextLevel()
