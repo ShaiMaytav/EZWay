@@ -13,6 +13,7 @@ public class LiveGameController : MonoBehaviour
     public List<LetterSlot> AnswerSlots;
     public UnityEvent OnPoolLetterPicked;
 
+    [SerializeField] private ShakeObject answerShaker;
     [SerializeField] private RectTransform canvas;
     [SerializeField] private float answerCenterOffset = 150;
 
@@ -201,6 +202,7 @@ public class LiveGameController : MonoBehaviour
         else
         {
             AudioManager._instance.PlaySFX(Sounds.Negative);
+            answerShaker.Shake();
             _uiManager.WrongAnswer();
         }
     }

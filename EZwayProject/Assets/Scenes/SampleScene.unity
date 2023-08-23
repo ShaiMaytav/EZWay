@@ -170,6 +170,7 @@ MonoBehaviour:
   OnPoolLetterPicked:
     m_PersistentCalls:
       m_Calls: []
+  answerShaker: {fileID: 1039804438}
   canvas: {fileID: 972138808}
   answerCenterOffset: 460
   inermediateParent: {fileID: 1909905663}
@@ -535,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &53901238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2394,19 +2395,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 316079814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1537065034}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &316079814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5166,8 +5155,8 @@ RectTransform:
   - {fileID: 539273882}
   - {fileID: 473706311}
   - {fileID: 932164040}
-  - {fileID: 999331253}
   - {fileID: 1909905664}
+  - {fileID: 999331253}
   m_Father: {fileID: 972138808}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7049,7 +7038,7 @@ PrefabInstance:
     - target: {fileID: 6906515674863584114, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584114, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
@@ -7528,6 +7517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1039804436}
   - component: {fileID: 1039804437}
+  - component: {fileID: 1039804438}
   m_Layer: 5
   m_Name: AnswerSlots
   m_TagString: Untagged
@@ -7542,7 +7532,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039804435}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7579,6 +7569,22 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1039804438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039804435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6a644b68d2da14ab0ebc9d22e0bad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amount: {x: 5, y: 0, z: 0}
+  Duration: 0.5
+  Speed: 5
+  ResetPosition: 1
 --- !u!1 &1042334689
 GameObject:
   m_ObjectHideFlags: 0
@@ -8552,7 +8558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1150706910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19801,7 +19807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1340477028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21100,7 +21106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1501586111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21800,7 +21806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dffcb19c89a1bc409c350f4b4e1e4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disapearTime: 2
+  disapearTime: 15
   onDisabled:
     m_PersistentCalls:
       m_Calls: []
@@ -24107,7 +24113,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 769146288}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
