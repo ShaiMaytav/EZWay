@@ -8170,9 +8170,12 @@ MonoBehaviour:
   EncourageTxt: {fileID: 1686815736}
   PointsTxt: {fileID: 316861256}
   PointsIcon: {fileID: 2117734841}
+  LevelsButton: {fileID: 512534268}
   Texts: {fileID: 1158078791}
-  HighPosY: 0
-  LowPosY: -270
+  TextsHighPosY: 0
+  TextLowPosY: -180
+  LevelsNormalX: -300
+  LevelsEndX: 0
 --- !u!1 &1124535423
 GameObject:
   m_ObjectHideFlags: 0

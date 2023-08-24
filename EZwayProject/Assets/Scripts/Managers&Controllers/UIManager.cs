@@ -123,17 +123,28 @@ public class UIManager : MonoBehaviour
 
 
         //sets texts position
-        Vector2 newTextPos = gameplayUI.LevelCompleteWindow.Texts.anchoredPosition;
+        Vector2 newPos = gameplayUI.LevelCompleteWindow.Texts.anchoredPosition;
         if (isFirstTime)
         {
-            newTextPos.y = gameplayUI.LevelCompleteWindow.HighPosY;
+            newPos.y = gameplayUI.LevelCompleteWindow.TextsHighPosY;
         }
         else
         {
-            newTextPos.y = gameplayUI.LevelCompleteWindow.LowPosY;
+            newPos.y = gameplayUI.LevelCompleteWindow.TextLowPosY;
         }
-        gameplayUI.LevelCompleteWindow.Texts.anchoredPosition = newTextPos;
+        gameplayUI.LevelCompleteWindow.Texts.anchoredPosition = newPos;
 
+        //sets levels button position
+        newPos = gameplayUI.LevelCompleteWindow.LevelsButton.anchoredPosition;
+        if (isLastLevel)
+        {
+            newPos.x = gameplayUI.LevelCompleteWindow.LevelsEndX;
+        }
+        else
+        {
+            newPos.x = gameplayUI.LevelCompleteWindow.LevelsNormalX;
+        }
+        gameplayUI.LevelCompleteWindow.LevelsButton.anchoredPosition = newPos;
     }
 
     public void WrongAnswer()
