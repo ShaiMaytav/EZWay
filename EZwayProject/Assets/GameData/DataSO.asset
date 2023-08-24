@@ -38,8 +38,8 @@ MonoBehaviour:
   - "\u05E2\u05D1\u05E8\u05EA \u05DC\u05E9\u05DC\u05D1 \u05D4\u05D0\u05D3\u05D5\u05DD"
   - "\u05E1\u05D9\u05D9\u05DE\u05EA \u05D0\u05EA \u05DB\u05DC \u05D4\u05E9\u05DC\u05D1\u05D9\u05DD!"
   MainTheme:
-    TopColor: {r: 0.9490197, g: 0.95294124, b: 0.95294124, a: 0}
-    BottomColor: {r: 0.79215693, g: 0.79215693, b: 0.79215693, a: 0}
+    TopColor: {r: 0.45882356, g: 0.81568635, b: 0.93725497, a: 1}
+    BottomColor: {r: 0.4663581, g: 0.8204483, b: 0.9433962, a: 1}
     GradiantSpread: 5
     ButtonsSprite: {fileID: 0}
     SlotSprite: {fileID: 0}
