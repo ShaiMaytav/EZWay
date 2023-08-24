@@ -10509,16 +10509,16 @@ RectTransform:
   m_GameObject: {fileID: 1340477027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.8145003, y: 5.9584, z: 7.8145003}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 824006556}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -503.15457}
-  m_SizeDelta: {x: 65.5418, y: 12.6023}
+  m_AnchoredPosition: {x: -1.582, y: -497.61792}
+  m_SizeDelta: {x: 437.282, y: 201.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340477029
 MonoBehaviour:
@@ -10540,7 +10540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u05E0\u05D9\u05D9\u05E1"
+  m_text: "\u05E0\u05D9\u05D9\u05E1 <sprite index=3>"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 94ea3fcad7dec964495551874a161332, type: 2}
   m_sharedMaterial: {fileID: -1296440082633333804, guid: 94ea3fcad7dec964495551874a161332,
@@ -10568,12 +10568,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.8
+  m_fontSize: 161.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
-  m_fontSizeMax: 72
+  m_fontSizeMax: 999
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
