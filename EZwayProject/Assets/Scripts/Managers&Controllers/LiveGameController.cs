@@ -269,7 +269,7 @@ public class LiveGameController : MonoBehaviour
         {
             for (int i = 0; i < slotsDelta; i++)
             {
-                LetterSlot newSlot = Instantiate(_gameManager.Prefabs.LetteSlotrPrefab, AnswerSlotsLayout);
+                LetterSlot newSlot = Instantiate(_gameManager.Prefabs.AnswerLetteSlotrPrefab, AnswerSlotsLayout);
                 AnswerSlots.Add(newSlot);
             }
         }

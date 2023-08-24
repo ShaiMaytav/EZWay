@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 18238
+  controlID: 18893
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 1440, y: 2960}
+  m_TargetSize: {x: 1284, y: 2778}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -78,11 +78,11 @@ MonoBehaviour:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 12
+    scale: 14
     fitToScreenEnabled: 1
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
-    friendlyName: Samsung Galaxy S9
+    friendlyName: Apple iPhone 12 Pro Max
     networkReachability: 1
     systemLanguage: 10
 --- !u!114 &3
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 18239
+  controlID: 18894
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 18240
+  controlID: 18895
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,23 +194,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6ad0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 24fbffff386d00000a6f0000f66f0000
+      m_SelectedIDs: 983f0100
+      m_LastClickedID: 81816
+      m_ExpandedIDs: 62eefcff94effcff7af3fcff24fbffff386d00000a6e0000e26e00000a6f0000f66f0000e4700000844101003a42010062420100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: AnswerSlots
+        m_OriginalName: AnswerSlots
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 82530
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -497,9 +497,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.667941, y: -0.8606467, z: 1112.3433}
+    m_Target: {x: -9.593954, y: -3.209846, z: 90}
     speed: 2
-    m_Value: {x: -3.667941, y: -0.8606467, z: 1112.3433}
+    m_Value: {x: -9.593954, y: -3.209846, z: 90}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -550,9 +550,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 71.46929
+    m_Target: 25.236744
     speed: 2
-    m_Value: 71.46929
+    m_Value: 25.236744
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2190,22 +2190,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/Sprites
+  - Assets/Prefabs
   m_LastFoldersGridSize: 60
   m_LastProjectPath: C:\DEV\Git\EZWay\EZwayProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 180}
-    m_SelectedIDs: 80750000
-    m_LastClickedID: 30080
-    m_ExpandedIDs: 000000003c7500003e75000040750000427500004475000046750000ffffff7f
+    scrollPos: {x: 0, y: 33.400024}
+    m_SelectedIDs: 74750000
+    m_LastClickedID: 30068
+    m_ExpandedIDs: 000000003c7500003e750000407500004275000044750000467500008475000086b60000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2258,8 +2258,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c6ad0000
-    m_LastClickedInstanceID: 44486
+    m_SelectedInstanceIDs: 983f0100
+    m_LastClickedInstanceID: 81816
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000aa730000e8c40000ecc40000d6710000b47100003272000030720000
     m_RenameOverlay:
@@ -2349,7 +2349,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28652
+  m_LastSelectedObjectID: 82308
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 18232
+  controlID: 18924
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2437,7 +2437,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 219.20001
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -2462,8 +2462,8 @@ MonoBehaviour:
     y: 481.6
     width: 403.19995
     height: 241.19998
-  m_MinSize: {x: 261, y: 241}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 260, y: 220}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -2503,7 +2503,7 @@ MonoBehaviour:
     m_CachedPref: 0
     m_ControlHash: 0
     m_PrefName: 
-  m_LastInspectedObjectInstanceID: 44486
+  m_LastInspectedObjectInstanceID: 81816
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

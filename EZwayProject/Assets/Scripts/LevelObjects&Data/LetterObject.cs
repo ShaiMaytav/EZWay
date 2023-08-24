@@ -29,6 +29,7 @@ public class LetterObject : MonoBehaviour
 
         slot.CurrentLetter = this;
         Vector3 targetPosition = slot.transform.position;
+        LeanTween.scale(gameObject,slot.transform.localScale, moveSpeed).setEase(LeanTweenType.easeInOutQuad);
         LeanTween.move(gameObject, targetPosition, moveSpeed).setEase(LeanTweenType.easeOutQuad).setOnComplete(() => OnEndLetterMove(slot));
     }
 
@@ -38,10 +39,12 @@ public class LetterObject : MonoBehaviour
         Vector3 targetPosition = slot.transform.position;
         transform.SetParent(slot.transform);
         rectTransform.position = targetPosition;
+        rectTransform.localScale = slot.transform.localScale;
     }
 
     private void OnEndLetterMove(LetterSlot slot)
     {
+        rectTransform.localScale = slot.transform.localScale;
         rectTransform.position = slot.transform.position;
         transform.SetParent(slot.transform);
 

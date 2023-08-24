@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
         {
             noConnectionUI.SetActive(true);
         }
+        ChangeBackgroundColors(GameManager.Instance.Data.MainTheme);
     }
     #endregion
 

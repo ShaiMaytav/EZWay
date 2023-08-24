@@ -16,5 +16,7 @@ MonoBehaviour:
     type: 3}
   LetteSlotrPrefab: {fileID: 2726800396257386782, guid: 059f9e64927b80640bb6a8b8397d74ac,
     type: 3}
+  AnswerLetteSlotrPrefab: {fileID: 932052227083176056, guid: 09140dbee7d532d4ab931c0db9593dd2,
+    type: 3}
   LevelButtonPrefab: {fileID: 2979728052732348615, guid: 4cfff0bac209a7441a883702d58b3865,
     type: 3}

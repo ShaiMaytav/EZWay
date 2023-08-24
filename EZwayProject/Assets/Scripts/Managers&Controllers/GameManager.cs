@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = FrameRate;
-        UIManager.Instance.ChangeBackgroundColors(GameManager.Instance.Data.MainTheme);
         CheckConnection();
     }
 
