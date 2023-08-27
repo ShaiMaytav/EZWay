@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
     {
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            Init();
+            Invoke("Init", 0.05f);
             UIManager.Instance.Startup(true);
         }
         else
