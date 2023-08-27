@@ -305,7 +305,7 @@ public class LiveGameController : MonoBehaviour
     {
         string text = CurrentQuestion.Example + "\n";
         text += CurrentQuestion.Condition + "\n";
-        text += CurrentQuestion.Question + "\n";
+        text += CurrentQuestion.Question + " ?" + "\n";
         shareLogic.ShareQuestText = text;
     }
 
