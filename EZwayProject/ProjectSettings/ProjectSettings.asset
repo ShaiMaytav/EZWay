@@ -160,7 +160,7 @@ PlayerSettings:
     iPhone: com.CloverBite.EZwayProject
   buildNumber:
     Standalone: 0
-    iPhone: 0
+    iPhone: 3
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 5

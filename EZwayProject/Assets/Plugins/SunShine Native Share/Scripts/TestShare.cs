@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class TestShare : MonoBehaviour
@@ -66,11 +66,11 @@ public class TestShare : MonoBehaviour
         listOfPaths[1] = destination_path2;
         //Call Share Function
         shareMultipleFileOfSameType(listOfPaths);
-    }
+    }
 
     private void shareScreenshot(string path)
     {
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "מה לדעתך התשובה? \n להורדת האפליקציה: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "", "Share EZWay");
     }
 
     public void ShareText()

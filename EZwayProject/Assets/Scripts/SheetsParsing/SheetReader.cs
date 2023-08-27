@@ -43,7 +43,6 @@ public class SheetReader : MonoBehaviour
         if (File.Exists(iOSJsonPath))
         {
             credentialsJson = File.ReadAllText(iOSJsonPath);
-            Debug.Log("JSON loaded successfully: " + jsonContent);
         }
 #endif
 
