@@ -73,11 +73,11 @@ public class TestShare : MonoBehaviour
     private void shareScreenshot(string path)
     {
 #if UNITY_IOS
-        SunShineNativeShare.instance.ShareText(ShareQuestText + "?? ????? ??????? \n ?????? ?????????: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share�EZWay");
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, ShareQuestText + "\nמה לדעתך התשובה?", "Share EZWay");
 #endif
 
 #if UNITY_ANDROID
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "?? ????? ??????? \n ?????? ?????????: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share�EZWay");
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "מה לדעתך התשובה? \n להורדת האפליקציה: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
 #endif
     }
 
