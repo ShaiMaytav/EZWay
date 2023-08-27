@@ -173,6 +173,7 @@ MonoBehaviour:
   answerShaker: {fileID: 1039804438}
   canvas: {fileID: 972138808}
   answerCenterOffset: 385
+  shareLogic: {fileID: 22447566}
   inermediateParent: {fileID: 1909905663}
 --- !u!4 &16663359
 Transform:
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c7b93a17bd69344bcc5168308d3bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShareQuestText: 
 --- !u!4 &22447567
 Transform:
   m_ObjectHideFlags: 0
@@ -13155,10 +13157,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 91.75
-  m_fontSizeBase: 36
+  m_fontSize: 91
+  m_fontSizeBase: 91
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 999
   m_fontStyle: 0

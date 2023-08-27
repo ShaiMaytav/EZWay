@@ -73,7 +73,7 @@ public class TestShare : MonoBehaviour
     private void shareScreenshot(string path)
     {
 #if UNITY_IOS
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, ShareQuestText + "\n?? ????? ???????", "Share EZWay");
+        SunShineNativeShare.instance.ShareText(ShareQuestText + "?? ????? ??????? \n ?????? ?????????: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
 #endif
 
 #if UNITY_ANDROID
