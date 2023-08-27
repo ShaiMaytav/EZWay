@@ -6,6 +6,8 @@ public class TestShare : MonoBehaviour
 
     private SunShineNativeShare _sunshineNativeShare;
 
+    public string ShareQuestText;
+
     private void Awake()
     {
        //_sunshineNativeShare = Find
@@ -70,7 +72,13 @@ public class TestShare : MonoBehaviour
 
     private void shareScreenshot(string path)
     {
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "", "Share EZWay");
+#if UNITY_IOS
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, ShareQuestText + "\n?? ????? ???????", "Share EZWay");
+#endif
+
+#if UNITY_ANDROID
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "?? ????? ??????? \n ?????? ?????????: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
+#endif
     }
 
     public void ShareText()

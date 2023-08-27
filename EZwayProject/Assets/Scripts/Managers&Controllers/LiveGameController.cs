@@ -16,6 +16,7 @@ public class LiveGameController : MonoBehaviour
     [SerializeField] private ShakeObject answerShaker;
     [SerializeField] private RectTransform canvas;
     [SerializeField] private float answerCenterOffset = 150;
+    [SerializeField] private TestShare shareLogic;
 
     private int _currentQuestionIndex;
     private GameManager _gameManager;
@@ -257,8 +258,7 @@ public class LiveGameController : MonoBehaviour
         _uiManager.UpdateQuestionsTrack((_currentQuestionIndex + 1) + "/" + CurrentLevel.Questions.Count);
         _uiManager.UpdatePointsText();
         LetterPool.SetLetters();
-
-       
+        UpdateShareText();
     }
 
     private void AdjustAnswerSlots()
@@ -299,6 +299,14 @@ public class LiveGameController : MonoBehaviour
         AnswerSlotsLayout.anchoredPosition = new Vector3(AnswerSlotsLayout.anchoredPosition.x / 100, AnswerSlotsLayout.anchoredPosition.y);
 
 
+    }
+
+    public void UpdateShareText()
+    {
+        string text = CurrentQuestion.Example + "\n";
+        text += CurrentQuestion.Condition + "\n";
+        text += CurrentQuestion.Question + "\n";
+        shareLogic.ShareQuestText = text;
     }
 
     public void Hint()
