@@ -6,11 +6,11 @@ public class TestShare : MonoBehaviour
 
     private SunShineNativeShare _sunshineNativeShare;
 
-    public string ShareQuestText;
+    [HideInInspector] public string ShareQuestText;
 
     private void Awake()
     {
-       //_sunshineNativeShare = Find
+        //_sunshineNativeShare = Find
     }
 
     public void takeScreenShotAndShare()
@@ -68,12 +68,12 @@ public class TestShare : MonoBehaviour
         listOfPaths[1] = destination_path2;
         //Call Share Function
         shareMultipleFileOfSameType(listOfPaths);
-    }
+    }
 
     private void shareScreenshot(string path)
     {
+        SunShineNativeShare.instance.ShareText(ShareQuestText + "מה לדעתך התשובה? \n להורדת האפליקציה: " + "webs", "Share EZWay");
 #if UNITY_IOS
-        SunShineNativeShare.instance.ShareText(ShareQuestText + "מה לדעתך התשובה? \n להורדת האפליקציה: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
 #endif
 
 #if UNITY_ANDROID

@@ -198,11 +198,14 @@ public class UIManager : MonoBehaviour
         gameplayUI.NotEnoughPointsWindow.SetActive(true);
     }
 
-    public void EnableOfferMenu()
+    public void OpenOfferMenu(int offerIndex)
     {
+        OfferData offer = _gameManager.Offers[offerIndex];
         TranslucentImage.SetActive(true);
 
-        gameplayUI.OfferWindow.SetActive(true);
+        gameplayUI.OfferWindow.gameObject.SetActive(true);
+        gameplayUI.OfferWindow.OfferText.text = offer.Text;
+        gameplayUI.OfferWindow.CurrentOfferLink = offer.Link;
     }
 
     public void UpdateLevelIcon()

@@ -10,8 +10,14 @@ public class GameManager : MonoBehaviour
     public List<LevelData> Levels;
     public PrefabsSO Prefabs;
     public DataSO Data;
+    public List<OfferData> Offers;
+    public string WebsiteLink;
     [SerializeField] private LevelsParser levelsParser;
+    [SerializeField] private SheetReader sheetReader;
     [SerializeField] private int FrameRate = 60;
+
+
+
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
@@ -41,6 +47,8 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         Levels = levelsParser.GetLevelsFromSheets();
+        Offers = sheetReader.GetOffers();
+        WebsiteLink = sheetReader.GetWebsiteLink();
         SyncProgression();
         Levels[0].IsUnlocked = true;
         Levels[0].DidOffer = true;
@@ -69,6 +77,13 @@ public class GameManager : MonoBehaviour
         AudioManager._instance.PlaySFX(Sounds.UIClick);
 
         Helper.OpenURLLink(link);
+    }
+
+    public void CallWebLink()
+    {
+        AudioManager._instance.PlaySFX(Sounds.UIClick);
+
+        Helper.OpenURLLink(WebsiteLink);
     }
 
     public void BuyHint()

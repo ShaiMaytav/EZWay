@@ -15,6 +15,8 @@ public class SheetReader : MonoBehaviour
     static private SheetsService service;
 
     private string range = "Levels!A2:E";
+    private string offerLinkRange = "Levels!H2:I";
+    private string websiteLinkRange = "Levels!K2:K";
 
     private string credentialsJson;
 
@@ -68,9 +70,9 @@ public class SheetReader : MonoBehaviour
             ServiceAccountCredential serviceAccountCredential = ServiceAccountCredential.FromServiceAccountData(creds);
             service = new SheetsService(new BaseClientService.Initializer() { HttpClientInitializer = serviceAccountCredential });
 
-            var request = service.Spreadsheets.Values.Get(spreadsheetID, range);
-            var response = request.Execute();
-            var values = response.Values;
+            //var request = service.Spreadsheets.Values.Get(spreadsheetID, range);
+            //var response = request.Execute();
+            //var values = response.Values;
         }
         yield return null;
     }
@@ -100,5 +102,35 @@ public class SheetReader : MonoBehaviour
             Debug.Log("No data found.");
             return null;
         }
+    }
+
+    [ContextMenu("Get offers")]
+    public List<OfferData> GetOffers()
+    {
+        SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetID, offerLinkRange);
+        ValueRange response = request.Execute();
+        IList<IList<object>> values = response.Values;
+
+        List<OfferData> offers = new List<OfferData>();
+
+        foreach (IList<object> rawOffer in values)
+        {
+            OfferData newOffer = new OfferData();
+            newOffer.Text = (string)rawOffer[0];
+            newOffer.Link = (string)rawOffer[1];
+            offers.Add(newOffer);
+        }
+
+
+        return offers;
+    }
+
+    [ContextMenu("Get website link")]
+    public string GetWebsiteLink()
+    {
+        SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetID, websiteLinkRange);
+        ValueRange response = request.Execute();
+        IList<IList<object>> values = response.Values;
+        return (string)values[0][0];
     }
 }

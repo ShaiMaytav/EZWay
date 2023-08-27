@@ -2067,8 +2067,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 191}
-  m_SizeDelta: {x: -220.489, y: -560.3508}
+  m_AnchoredPosition: {x: 0, y: 169.29999}
+  m_SizeDelta: {x: -180.428, y: -503.598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277756583
 MonoBehaviour:
@@ -2119,7 +2119,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 123.1
+  m_fontSize: 135.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3075,6 +3075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425942427}
   - component: {fileID: 425942428}
+  - component: {fileID: 425942429}
   m_Layer: 5
   m_Name: OfferWindow
   m_TagString: Untagged
@@ -3124,6 +3125,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &425942429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425942426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d43b934e06a05a4db609f7c75000cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OfferText: {fileID: 277756583}
+  CurrentOfferLink: 
 --- !u!224 &464102736 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4270873812612219409, guid: 059f9e64927b80640bb6a8b8397d74ac,
@@ -3945,7 +3960,10 @@ MonoBehaviour:
   Levels: []
   Prefabs: {fileID: 11400000, guid: fd448f41615dc9c448a8bf2375c61ee1, type: 2}
   Data: {fileID: 11400000, guid: 095f9d5fe7681534694915c663a21741, type: 2}
+  Offers: []
+  WebsiteLink: 
   levelsParser: {fileID: 506797209}
+  sheetReader: {fileID: 1677037107}
   FrameRate: 60
 --- !u!4 &552381332
 Transform:
@@ -4791,9 +4809,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 552381331}
+    - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallWebLink
+      objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584125, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
       propertyPath: m_Name
@@ -5096,7 +5124,7 @@ GameObject:
   - component: {fileID: 761979589}
   - component: {fileID: 761979590}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5198,7 +5226,7 @@ MonoBehaviour:
   QuestionCompleteWindow: {fileID: 824006558}
   WrongAnswerWindow: {fileID: 1537065034}
   NotEnoughPointsWindow: {fileID: 486385761}
-  OfferWindow: {fileID: 425942426}
+  OfferWindow: {fileID: 425942429}
   LevelCompleteWindow: {fileID: 1121764339}
   NextLevelButton: {fileID: 537608129}
   QuestExampleTxt: {fileID: 1566965303}
@@ -5422,16 +5450,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 552381331}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CallLink
-        m_Mode: 5
+      - m_Target: {fileID: 425942429}
+        m_TargetAssemblyTypeName: OfferWindowUI, Assembly-CSharp
+        m_MethodName: CallCurrentLink
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: https://www.ezway.co.il
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &788397878
@@ -7288,13 +7316,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 552381331}
     - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CallLink
+      value: CallWebLink
       objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584125, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
@@ -17220,9 +17253,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 552381331}
+    - target: {fileID: 6906515674863584115, guid: 04e6cfb1884a5224ab982e8d77730e08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallWebLink
+      objectReference: {fileID: 0}
     - target: {fileID: 6906515674863584125, guid: 04e6cfb1884a5224ab982e8d77730e08,
         type: 3}
       propertyPath: m_Name

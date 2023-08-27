@@ -12,7 +12,7 @@ public class GameplayUI : BaseUIElement
     public QuestionCompleteWindow QuestionCompleteWindow;
     public GameObject WrongAnswerWindow;
     public GameObject NotEnoughPointsWindow;
-    public GameObject OfferWindow;
+    public OfferWindowUI OfferWindow;
     public LevelCompleteUI LevelCompleteWindow;
     public GameObject NextLevelButton;
     public TMP_Text QuestExampleTxt;

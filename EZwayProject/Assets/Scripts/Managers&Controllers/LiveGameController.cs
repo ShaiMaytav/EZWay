@@ -65,7 +65,7 @@ public class LiveGameController : MonoBehaviour
 
         if (!CurrentLevel.DidOffer)
         {
-            _uiManager.EnableOfferMenu();
+            _uiManager.OpenOfferMenu(CurrentLevel.LevelNum - 2);
             CurrentLevel.DidOffer = true;
             SaveLoad data = SaveLoad.Instance;
             LevelProgression tmpLvlProg = data.LevelsProgression[CurrentLevel.LevelNum - 1];
