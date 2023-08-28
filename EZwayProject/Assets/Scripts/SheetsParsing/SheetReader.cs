@@ -17,6 +17,7 @@ public class SheetReader : MonoBehaviour
     private string range = "Levels!A2:E";
     private string offerLinkRange = "Levels!H2:I";
     private string websiteLinkRange = "Levels!K2:K";
+    private string downloadLinkRange = "Levels!L2:L";
 
     private string credentialsJson;
 
@@ -129,6 +130,15 @@ public class SheetReader : MonoBehaviour
     public string GetWebsiteLink()
     {
         SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetID, websiteLinkRange);
+        ValueRange response = request.Execute();
+        IList<IList<object>> values = response.Values;
+        return (string)values[0][0];
+    }
+
+    [ContextMenu("Get download link")]
+    public string GetDownloadLink()
+    {
+        SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetID, downloadLinkRange);
         ValueRange response = request.Execute();
         IList<IList<object>> values = response.Values;
         return (string)values[0][0];

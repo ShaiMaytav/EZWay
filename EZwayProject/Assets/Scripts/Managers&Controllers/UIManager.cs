@@ -152,10 +152,10 @@ public class UIManager : MonoBehaviour
         gameplayUI.WrongAnswerWindow.SetActive(true);
     }
 
-    public void QuestionComplete()
+    public void QuestionComplete(int textIndex)
     {
         gameplayUI.QuestionCompleteWindow.gameObject.SetActive(true);
-        gameplayUI.QuestionCompleteWindow.CorrectText.text = _gameManager.Data.GetRandomQuestText();
+        gameplayUI.QuestionCompleteWindow.CorrectText.text = _gameManager.Data.GetQuestText(textIndex);
         TranslucentImage.SetActive(true);  
     }
 

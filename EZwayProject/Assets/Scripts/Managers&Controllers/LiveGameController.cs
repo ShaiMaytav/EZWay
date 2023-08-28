@@ -163,9 +163,9 @@ public class LiveGameController : MonoBehaviour
             {
                 _audioManager.PlaySFX(Sounds.QuestionComplete);
 
+                UIManager.Instance.QuestionComplete(_currentQuestionIndex); //opens window between questions
                 _currentQuestionIndex++;
                 //GenerateQuestion();
-                UIManager.Instance.QuestionComplete(); //opens window between questions
 
             }
             else

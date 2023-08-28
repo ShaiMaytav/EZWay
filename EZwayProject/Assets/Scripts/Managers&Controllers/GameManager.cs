@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public string WebsiteLink;
     [SerializeField] private LevelsParser levelsParser;
     [SerializeField] private SheetReader sheetReader;
+    [SerializeField] private TestShare testShare;
     [SerializeField] private int FrameRate = 60;
 
 
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         Levels = levelsParser.GetLevelsFromSheets();
         Offers = sheetReader.GetOffers();
         WebsiteLink = sheetReader.GetWebsiteLink();
+        testShare.DownloadLink = sheetReader.GetDownloadLink();
         SyncProgression();
         Levels[0].IsUnlocked = true;
         Levels[0].DidOffer = true;

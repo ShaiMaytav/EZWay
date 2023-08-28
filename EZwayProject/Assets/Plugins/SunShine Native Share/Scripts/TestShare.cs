@@ -7,6 +7,7 @@ public class TestShare : MonoBehaviour
     private SunShineNativeShare _sunshineNativeShare;
 
     [HideInInspector] public string ShareQuestText;
+    [HideInInspector] public string DownloadLink;
 
     private void Awake()
     {
@@ -72,18 +73,18 @@ public class TestShare : MonoBehaviour
 
     private void shareScreenshot(string path)
     {
-        SunShineNativeShare.instance.ShareText(ShareQuestText + "מה לדעתך התשובה? \n להורדת האפליקציה: " + "webs", "Share EZWay");
 #if UNITY_IOS
+        SunShineNativeShare.instance.ShareText(ShareQuestText + "מה לדעתך התשובה? \n להורדת האפליקציה: " + DownloadLink , "Share EZWay");
 #endif
 
 #if UNITY_ANDROID
-        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "מה לדעתך התשובה? \n להורדת האפליקציה: https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
+        SunShineNativeShare.instance.ShareSingleFile(path, SunShineNativeShare.TYPE_IMAGE, "מה לדעתך התשובה? \n להורדת האפליקציה: " + DownloadLink, "Share EZWay");
 #endif
     }
 
     public void ShareText()
     {
-        SunShineNativeShare.instance.ShareText("https://www.ezway.co.il/practice/psychometric-vocabulary/psychometric-apps/", "Share EZWay");
+        SunShineNativeShare.instance.ShareText(ShareQuestText + "מה לדעתך התשובה? \n להורדת האפליקציה: " + DownloadLink, "Share EZWay");
     }
 
 
@@ -94,7 +95,6 @@ public class TestShare : MonoBehaviour
         //For Multiple file type shareing
         //SunShineNativeShare.ShareMultipleFileOfMultipleType(listOfPaths, "Share Message","Share By sunshine");
     }
-
 
 
 }

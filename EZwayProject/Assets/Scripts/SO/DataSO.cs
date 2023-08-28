@@ -26,6 +26,12 @@ public class DataSO : ScriptableObject
         return QuestionCompletionText[Random.Range(0, QuestionCompletionText.Count)];
     }
 
+    public string GetQuestText(int index)
+    {
+        int newIndex = index % QuestionCompletionText.Count;
+        return QuestionCompletionText[newIndex];
+    }
+
     public Sprite GetTitleIcon(int rank)
     {
         return TitleSprites[rank];

@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShareQuestText: 
+  DownloadLink: 
 --- !u!4 &22447567
 Transform:
   m_ObjectHideFlags: 0
@@ -556,7 +557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -504}
+  m_AnchoredPosition: {x: 0, y: 572}
   m_SizeDelta: {x: 70.869, y: 54.5063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53901239
@@ -2342,8 +2343,20 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 22447566}
         m_TargetAssemblyTypeName: TestShare, Assembly-CSharp-firstpass
-        m_MethodName: ShareText
+        m_MethodName: takeScreenShotAndShare
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2082763882}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3191,7 +3204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75, y: -60}
+  m_AnchoredPosition: {x: -80, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &486385761
@@ -3964,6 +3977,7 @@ MonoBehaviour:
   WebsiteLink: 
   levelsParser: {fileID: 506797209}
   sheetReader: {fileID: 1677037107}
+  testShare: {fileID: 22447566}
   FrameRate: 60
 --- !u!4 &552381332
 Transform:
@@ -5887,7 +5901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1076}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824006557
@@ -6472,8 +6486,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86, y: -105}
-  m_SizeDelta: {x: 113.035, y: 118.275}
+  m_AnchoredPosition: {x: 94, y: -120}
+  m_SizeDelta: {x: 105, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932164041
 MonoBehaviour:
@@ -10555,7 +10569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.582, y: -497.61792}
+  m_AnchoredPosition: {x: -1.582, y: 578}
   m_SizeDelta: {x: 437.282, y: 201.117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340477029
@@ -10578,7 +10592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u05E0\u05D9\u05D9\u05E1 <sprite index=3>"
+  m_text: "\u05E0\u05DB\u05D5\u05DF<sprite index=7>"
   m_isRightToLeft: 1
   m_fontAsset: {fileID: 11400000, guid: 94ea3fcad7dec964495551874a161332, type: 2}
   m_sharedMaterial: {fileID: -1296440082633333804, guid: 94ea3fcad7dec964495551874a161332,
@@ -10606,12 +10620,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 161.95
+  m_fontSize: 140
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 1
-  m_fontSizeMax: 999
+  m_fontSizeMax: 140
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -11477,8 +11491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1076}
-  m_SizeDelta: {x: -0.000061035156, y: 0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000061035156, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437443436
 MonoBehaviour:
